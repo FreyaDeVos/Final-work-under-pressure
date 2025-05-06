@@ -1,10 +1,11 @@
 .indicatorContainer {
     display: flex;
-    position:relative;
+    position: relative;
     justify-content: center;
     align-items: center;
     gap: 2%;
-    padding: 1rem 0;
+    padding: 16px 0 16px 0;
+    top: 5%;
 }
 
 .dot {

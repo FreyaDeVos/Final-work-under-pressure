@@ -1,9 +1,27 @@
 .exitButton {
+
     scale: 200%;
     position: absolute;
     border-radius: 50%;
     background-color: white !important;
+    color: darkgray;
+    padding: 16px;
+    top: 5%;
     top: 10px;
     right: 10px;
     z-index: 10;
+    border-radius: 70%;
+}
+
+.exitButton:hover {
+    color: blue;
+    border-radius: 0%;
+    outline: none;
+    border: none;
+}
+
+.exitButton:focus,
+.exitButton:focus-visible {
+    outline: none;
+    border: none;
 }

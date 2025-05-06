@@ -33,7 +33,7 @@ button {
   font-family: inherit;
   background-color: darkgray;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: color 0.25s;
 }
 
 button:hover {
