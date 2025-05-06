@@ -1,0 +1,16 @@
+.arrowContainer {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 5%;
+}
+
+.arrow {
+    font-size: 60px;
+    transition: transform 0.3s ease;
+    color: black;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+}

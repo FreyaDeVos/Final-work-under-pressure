@@ -1,11 +1,11 @@
 .animationContainer {
-    display: flex;
+    background-color:beige;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: flex;
+    width: 100vw;
+    height: 80vh;
 }
 
 .gif {
-    scale: 200%;
-    border-radius: 8px;
+    scale: 70%;
 }
