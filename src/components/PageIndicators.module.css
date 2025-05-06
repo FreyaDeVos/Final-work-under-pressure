@@ -1,13 +1,14 @@
 .indicatorContainer {
     display: flex;
+    position:relative;
     justify-content: center;
-    gap:2%;
+    align-items: center;
+    gap: 2%;
     padding: 1rem 0;
 }
 
 .dot {
     scale: 80%;
-    background-color: #ea5427;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -20,6 +21,3 @@
 .active {
     background-color: #333;
 }
-
-
-  

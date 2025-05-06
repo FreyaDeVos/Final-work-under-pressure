@@ -1,18 +1,14 @@
 import React from 'react';
 import styles from './ExitButton.module.css';
+import { AiOutlineClose } from '../../node_modules/react-icons/ai';
 
-function ExitButton() {
-  const handleClick = () => {
-    alert('Sluiten!');
-  };
 
+const ExitButton = ({ onClick }) => {
   return (
-    <button className={styles.exitButton} onClick={handleClick}>
-      ×
+    <button onClick={onClick} className={styles.exitButton}>
+            <AiOutlineClose size={20} />
     </button>
   );
-}
+};
 
 export default ExitButton;
-
-  

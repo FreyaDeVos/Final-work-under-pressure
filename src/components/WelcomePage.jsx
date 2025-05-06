@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import ExitButton from './ExitButton';
 import PageIndicators from './PageIndicators';
+import ToggleSwitch from './ToggleSwitch';
 
 
 function WelcomePage() {
@@ -17,6 +18,9 @@ function WelcomePage() {
       <div className="exit-button">
         <ExitButton />
       </div>
+      <div className="toggleContainer">
+      <ToggleSwitch/>
+    </div>
     </>
   );
 }

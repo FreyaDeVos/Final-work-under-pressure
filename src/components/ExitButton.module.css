@@ -1,8 +1,9 @@
-
 .exitButton {
+    scale: 200%;
     position: absolute;
+    border-radius: 50%;
+    background-color: white !important;
     top: 10px;
     right: 10px;
     z-index: 10;
-  }
-  
+}
