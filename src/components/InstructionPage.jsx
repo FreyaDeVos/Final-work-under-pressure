@@ -15,7 +15,7 @@ const InstructionPage = ({ onNextPage }) => {
         <Animation />
         <Animation />
       </div>
-   <Start/>
+         <Start/>
     </div>
   );
 };

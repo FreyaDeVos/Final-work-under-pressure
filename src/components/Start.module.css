@@ -1,19 +1,9 @@
-.startContainer {
+.startContainer button {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.startButton {
-    padding: 10px 20px;
-    background-color: darkgrey;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.startButton:hover {
-    background-color: darkgray;
+    bottom: 5%;
+    align-self: center;
+    left: 50%;
+    /* Horizontaal op 50% */
+    transform: translateX(-50%);
 }
