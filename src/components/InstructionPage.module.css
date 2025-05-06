@@ -1,3 +1,10 @@
-.instructionPageContainer {
-    background-color: red;
+.animationInstructionContainer {
+    display: flex;
+    /* Zorgt ervoor dat de animaties naast elkaar komen */
+    justify-content: space-around;
+    align-items: center;
+    /* Plaatst ze met ruimte ertussen */
+    width: 80%;
+    /* Of een specifieke breedte naar wens */
+height: auto;
 }

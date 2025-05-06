@@ -11,7 +11,6 @@ function WelcomePage() {
 
   return (
     <>
-   
       <PageIndicators
         totalPages={6}
         currentPage={currentPage}

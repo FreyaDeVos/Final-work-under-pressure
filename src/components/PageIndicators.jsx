@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './PageIndicators.module.css';
 
-// './PageIndicators.module.css';
-
 function PageIndicators({ totalPages, currentPage, onPageChange }) {
   return (
     <div className={styles.indicatorContainer}>

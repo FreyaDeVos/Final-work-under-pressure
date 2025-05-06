@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import WelcomePage from './components/WelcomePage'; 
-import InstructiePagina from './components/InstructionPage'; 
 import NextArrow from './components/NextArrow'; 
 import InstructionPage from './components/InstructionPage';
 
