@@ -19,7 +19,7 @@ function WelcomePage() {
       />
        <h1>Under pressure</h1>
       <div className="exit-button">
-        <ExitButton />
+      <ExitButton onClick={() => alert('Exit!')} />
       </div>
     <Animation/>
     <NextArrow/>
