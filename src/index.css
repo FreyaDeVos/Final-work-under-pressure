@@ -40,9 +40,7 @@ button:focus-visible {
   outline: 4px #ea5427;
 }
 
-div {
-  display: flex;
-}
+
 
 script {
   display: flex;
