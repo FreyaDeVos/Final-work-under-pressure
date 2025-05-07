@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import WelcomePage from './components/WelcomePage'; 
 import NextArrow from './components/NextArrow'; 
 import InstructionPage from './components/InstructionPage';
+import NullPage from './components/NullPage';
 
 const App = () => {
   // We houden bij welke pagina we moeten tonen
@@ -26,7 +27,12 @@ const App = () => {
           <NextArrow onClick={goToNextPage} />
         </div>
       )}
-      {/* Voeg hier andere pagina's toe indien nodig */}
+      {currentPage === 3 && (
+        <div>
+          <NullPage />
+          <NextArrow onClick={goToNextPage} />
+        </div>
+      )}
     </div>
   );
 };

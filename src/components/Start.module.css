@@ -4,6 +4,5 @@
     bottom: 5%;
     align-self: center;
     left: 50%;
-    /* Horizontaal op 50% */
     transform: translateX(-50%);
 }

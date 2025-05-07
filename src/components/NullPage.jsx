@@ -1,14 +1,14 @@
 import React from 'react';
-import PageIndicators from './PageIndicators';  // Zorg ervoor dat je deze component hebt
-import ExitButton from './ExitButton';  // Zorg ervoor dat je deze component hebt
+import PageIndicators from './PageIndicators'; 
+import ExitButton from './ExitButton';  
 import styles from './InstructionPage.module.css';
 import Animation from './Animation';
 import Start from './Start';
 
-const InstructionPage = ({ onNextPage }) => {
+const NullPage = ({ onNextPage }) => {
   return (
     <div className={styles.instructionPageContainer}>
-      <PageIndicators totalPages={6} currentPage={1} onPageChange={() => {}} />
+      <PageIndicators totalPages={6} currentPage={2} onPageChange={() => {}} />
       <ExitButton onClick={() => alert('Exit!')} />
      <h1>instructions</h1>
      <div className={styles.animationInstructionContainer}>
@@ -26,4 +26,4 @@ const InstructionPage = ({ onNextPage }) => {
   );
 };
 
-export default InstructionPage;
+export default NullPage;
