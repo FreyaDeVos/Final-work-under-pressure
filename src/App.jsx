@@ -3,8 +3,10 @@ import WelcomePage from './components/WelcomePage';
 import NextArrow from './components/NextArrow'; 
 import InstructionPage from './components/InstructionPage';
 import NullPage from './components/NullPage';
+import styles from './components/NextArrow.module.css';
 
-const App = () => {
+
+function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const goToNextPage = () => {
@@ -28,18 +30,11 @@ const App = () => {
           <NullPage />
         </div>
       )}
-
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        right: '5%',
-        transform: 'translateY(-50%)',
-        cursor: 'pointer'
-      }}>
+      <div>
         <NextArrow onClick={goToNextPage} />
-      </div>
+        </div>
     </div>
   );
-};
+}
 
 export default App;

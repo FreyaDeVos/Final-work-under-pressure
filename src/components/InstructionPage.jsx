@@ -4,7 +4,6 @@ import ExitButton from './ExitButton';  // Zorg ervoor dat je deze component heb
 import styles from './InstructionPage.module.css';
 import Animation from './Animation';
 import Start from './Start';
-import NextArrow from './NextArrow';
 
 const InstructionPage = ({ onNextPage }) => {
   return (

@@ -30,3 +30,16 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.arrowContainer,
+script {
+  display: flex !important;
+  background-color: aqua;
+  scale: 100%;
+  top: 50%;
+}
+
+button {
+  all: unset;
+  display: none;
+}
