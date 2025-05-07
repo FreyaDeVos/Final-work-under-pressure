@@ -3,7 +3,6 @@ import WelcomePage from './components/WelcomePage';
 import NextArrow from './components/NextArrow'; 
 import InstructionPage from './components/InstructionPage';
 import NullPage from './components/NullPage';
-import styles from './components/NextArrow.module.css';
 
 
 function App() {
@@ -15,24 +14,11 @@ function App() {
 
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
-      {currentPage === 1 && (
-        <div>
-          <WelcomePage />
-        </div>
-      )}
-      {currentPage === 2 && (
-        <div>
-          <InstructionPage />
-        </div>
-      )}
-      {currentPage === 3 && (
-        <div>
-          <NullPage />
-        </div>
-      )}
-      <div>
-        <NextArrow onClick={goToNextPage} />
-        </div>
+      {currentPage === 1 && <WelcomePage />}
+      {currentPage === 2 && <InstructionPage />}
+      {currentPage === 3 && <NullPage />}
+      {/* Toon altijd de NextArrow */}
+      <NextArrow onClick={goToNextPage} />
     </div>
   );
 }
