@@ -1,11 +1,3 @@
 .animationContainer {
-    background-color:beige;
-    justify-content: center;
-    display: flex;
-    width: 100vw;
-    height: 80vh;
-}
-
-.gif {
-    scale: 70%;
+    background-color: beige;
 }

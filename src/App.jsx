@@ -5,37 +5,41 @@ import InstructionPage from './components/InstructionPage';
 import NullPage from './components/NullPage';
 
 const App = () => {
-  // We houden bij welke pagina we moeten tonen
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Functie om naar de volgende pagina te gaan
   const goToNextPage = () => {
     setCurrentPage(currentPage + 1);
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative', height: '100vh' }}>
       {currentPage === 1 && (
         <div>
           <WelcomePage />
-          <NextArrow onClick={goToNextPage} />
         </div>
       )}
       {currentPage === 2 && (
         <div>
           <InstructionPage />
-          <NextArrow onClick={goToNextPage} />
         </div>
       )}
       {currentPage === 3 && (
         <div>
           <NullPage />
-          <NextArrow onClick={goToNextPage} />
         </div>
       )}
+
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        right: '5%',
+        transform: 'translateY(-50%)',
+        cursor: 'pointer'
+      }}>
+        <NextArrow onClick={goToNextPage} />
+      </div>
     </div>
   );
 };
 
 export default App;
-

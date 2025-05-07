@@ -1,8 +1,8 @@
 .startContainer button {
-    position: absolute;
     cursor: pointer;
-    bottom: 5%;
-    align-self: center;
-    left: 50%;
-    transform: translateX(-50%);
+}
+
+.startContainer p {
+
+    background-color: antiquewhite;
 }

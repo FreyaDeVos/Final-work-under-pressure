@@ -1,16 +1,11 @@
 .exitButton {
-
-    scale: 200%;
     position: absolute;
-    border-radius: 50%;
-    background-color: white !important;
+    top: 10%;
+    right: 5%;
+    background-color: transparent;
     color: darkgray;
-    padding: 16px;
-    top: 5%;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    border-radius: 70%;
+    transform: scale(2);
+    cursor: pointer;
 }
 
 .exitButton:hover {

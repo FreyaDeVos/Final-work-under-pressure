@@ -4,6 +4,7 @@ import ExitButton from './ExitButton';  // Zorg ervoor dat je deze component heb
 import styles from './InstructionPage.module.css';
 import Animation from './Animation';
 import Start from './Start';
+import NextArrow from './NextArrow';
 
 const InstructionPage = ({ onNextPage }) => {
   return (
@@ -11,6 +12,7 @@ const InstructionPage = ({ onNextPage }) => {
       <PageIndicators totalPages={6} currentPage={1} onPageChange={() => {}} />
       <ExitButton onClick={() => alert('Exit!')} />
      <h1>instructions</h1>
+     <NextArrow/>
      <div className={styles.animationInstructionContainer}>
         <div className={styles.animationBlock}>
         <Animation />
@@ -21,7 +23,7 @@ const InstructionPage = ({ onNextPage }) => {
         <p>zet de koptelefoon op</p>
         </div>
       </div>
-         <Start/>
+      <Start/>
     </div>
   );
 };
