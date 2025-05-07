@@ -2,7 +2,7 @@ import React from 'react';
 import PageIndicators from './PageIndicators'; 
 import ExitButton from './ExitButton';  
 import styles from './LayoutGrid.module.css';
-import Start from './Start';
+
 
 
 const NullPage = ({ onNextPage }) => {
@@ -16,6 +16,7 @@ const NullPage = ({ onNextPage }) => {
 
   
       <div className={styles.mainContent}>
+      <p>eerst anamatie die toont hoe je in en uit ademte en dan pas begint timer balk af te tellen</p>
       <p>adem in en uit</p>
       <p>cirkels in en uit</p>
       <p>tijdsbalk bovenaan + blur an page indicators</p>
