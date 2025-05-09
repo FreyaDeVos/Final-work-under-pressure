@@ -2,19 +2,20 @@ import React from 'react';
 import PageIndicators from './PageIndicators'; 
 import ExitButton from './ExitButton';  
 import styles from './LayoutGrid.module.css';
-
 import Animation from './Animation';
+import breath from '../assets/breath.gif';
 
-const Statistics1 = ({ onNextPage }) => {
+const Stress = ({ onNextPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <PageIndicators totalPages={6} currentPage={3} onPageChange={() => {}} />
+        <PageIndicators totalPages={6} currentPage={4} onPageChange={() => {}} />
         <ExitButton onClick={() => alert('Exit!')} />
       </div>
       <div className={styles.mainContent}>
-      <p>hier komt grafiek 
-      </p>
+      <div className={styles.animationBreath}>
+      <Animation src={breath} />
+      </div>
       </div>
       <div className={styles.footer}>
       </div>
@@ -22,4 +23,4 @@ const Statistics1 = ({ onNextPage }) => {
   );
 };
 
-export default Statistics1;
+export default Stress;

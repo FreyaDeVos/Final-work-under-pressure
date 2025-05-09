@@ -1,5 +1,5 @@
 import React from 'react';
-import PageIndicators from './PageIndicators'; 
+
 import ExitButton from './ExitButton';  
 import styles from './LayoutGrid.module.css';
 import Animation from './Animation';
