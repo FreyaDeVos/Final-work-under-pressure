@@ -5,6 +5,7 @@ import PageIndicators from './PageIndicators';
 import ToggleSwitch from './ToggleSwitch';
 import Animation from './Animation';
 import styles from './LayoutGrid.module.css';
+import welkom from '../assets/welkom.gif';
 
 function WelcomePage() {
   const [currentPage, setCurrentPage] = useState(0); // start op pagina 0
@@ -24,7 +25,7 @@ function WelcomePage() {
       {/* Main content */}
       <div className={styles.mainContent}>
         <h1>Under pressure</h1>
-        <Animation />
+        <Animation src={welkom} alt="Welkom animatie" />
         <ToggleSwitch />
       </div>
       {/* Footer */}

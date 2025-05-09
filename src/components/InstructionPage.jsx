@@ -27,7 +27,6 @@ const InstructionPage = ({ onNextPage }) => {
             <Animation />
             <p>Doe de Polar meter om</p>
           </div>
-         
         </div>
         <Start />
       </div>
