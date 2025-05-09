@@ -3,6 +3,7 @@ import WelcomePage from './components/WelcomePage';
 import NextArrow from './components/NextArrow'; 
 import InstructionPage from './components/InstructionPage';
 import NullPage from './components/NullPage';
+import Statistics1 from './components/Statistics1';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       {currentPage === 1 && <WelcomePage />}
       {currentPage === 2 && <InstructionPage />}
       {currentPage === 3 && <NullPage />}
+      {currentPage === 4 && <Statistics1 />}
       {/* Toon altijd de NextArrow */}
       <NextArrow onClick={goToNextPage} />
     </div>
