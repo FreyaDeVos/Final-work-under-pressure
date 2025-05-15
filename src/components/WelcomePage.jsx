@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ExitButton from './ExitButton';
 import PageIndicators from './PageIndicators';
@@ -7,7 +6,7 @@ import Animation from './Animation';
 import styles from './LayoutGrid.module.css';
 import welkom from '../assets/welkom.gif';
 
-function WelcomePage() {
+function WelcomePage({ hrvData }) {
   const [currentPage, setCurrentPage] = useState(0); // start op pagina 0
 
   return (
@@ -27,7 +26,18 @@ function WelcomePage() {
         <h1>Under pressure</h1>
         <Animation src={welkom} alt="Welkom animatie" />
         <ToggleSwitch />
+
+        {/* Toon HRV data als die er is */}
+        {hrvData ? (
+          <div>
+            <p>❤️ Hartslag: {hrvData.hr}</p>
+            <p>🧠 RR-intervallen: {hrvData.rrIntervals.length > 0 ? hrvData.rrIntervals.join(', ') : 'geen'}</p>
+          </div>
+        ) : (
+          <p>Wachten op HRV data...</p>
+        )}
       </div>
+
       {/* Footer */}
       <div className={styles.footer}>
       </div>
