@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './ExitButton.module.css';
-import { AiOutlineClose } from '../../node_modules/react-icons/ai';
+import exitIcon from '../assets/exit.svg'; // ⬅️ pas dit pad aan als nodig
 
 
 const ExitButton = ({ onClick }) => {
   return (
     <button onClick={onClick} className={styles.exitButton}>
-            <AiOutlineClose size={20} />
+                <img src={exitIcon} alt="Exit" className={styles.exitIcon} />
     </button>
   );
 };

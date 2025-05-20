@@ -2,20 +2,36 @@
     position: absolute;
     right: 5%;
     background-color: transparent;
-    color: darkgray;
-    transform: scale(2);
+    transform: scale(1.5);
     cursor: pointer;
-}
-
-.exitButton:hover {
-    color: blue;
-    border-radius: 0%;
-    outline: none;
     border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Als je een <img> gebruikt voor de SVG */
+.exitButton img,
+.exitButton svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    filter: brightness(200%);
+    /* komt overeen met 'darkgray' look */
+    transition: filter 0.2s, transform 0.2s;
+}
+
+/* Geen focus randje */
 .exitButton:focus,
 .exitButton:focus-visible {
     outline: none;
     border: none;
+}
+
+
+.exitButton:hover img,
+.exitButton:hover svg {
+    filter: brightness(60%) sepia(1) hue-rotate(190deg) saturate(500%);
+    transform: scale(1.5);
 }
