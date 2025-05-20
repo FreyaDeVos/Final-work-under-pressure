@@ -5,13 +5,17 @@ import ToggleSwitch from './ToggleSwitch';
 import Animation from './Animation';
 import styles from './LayoutGrid.module.css';
 import welkom from '../assets/welkom.gif';
+import RMSSDDisplay from './RMSSDDisplay'; 
+
+
 
 function WelcomePage({ hrvData }) {
   const [currentPage, setCurrentPage] = useState(0); // start op pagina 0
+  const rrIntervals = hrvData?.rrIntervals || [];
+  const rr = hrvData?.rrIntervals || [];
 
-  return (
+  return (  
     <div className={styles.gridContainer}>
-      {/* Header */}
       <div className={styles.header}>
         <PageIndicators
           totalPages={6}
@@ -27,17 +31,17 @@ function WelcomePage({ hrvData }) {
         <Animation src={welkom} alt="Welkom animatie" />
         <ToggleSwitch />
 
-        {/* Toon HRV data als die er is */}
+        {/* HRV-data */}
         {hrvData ? (
           <div>
             <p>❤️ Hartslag: {hrvData.hr}</p>
-            <p>🧠 RR-intervallen: {hrvData.rrIntervals.length > 0 ? hrvData.rrIntervals.join(', ') : 'geen'}</p>
+            <p>🧠 RR-intervallen (ms): {rrIntervals.join(', ')}</p>
+            <RMSSDDisplay rrIntervals={rrIntervals} />
           </div>
         ) : (
-          <p>Wachten op HRV data...</p>
+          <p>⌛ Wachten op HRV data...</p>
         )}
       </div>
-
       {/* Footer */}
       <div className={styles.footer}>
       </div>
