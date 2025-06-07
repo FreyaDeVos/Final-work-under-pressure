@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import ExitButton from './ExitButton';  
 import styles from './LayoutGrid.module.css';
 import Animation from './Animation';
-import ademinuit from '../assets/breathV3.mp4';
-import tijdsbalk from '../assets/tijdsbalk.mp4';
+
 
 const NullPage = ({ setCurrentPage }) => {
   useEffect(() => {

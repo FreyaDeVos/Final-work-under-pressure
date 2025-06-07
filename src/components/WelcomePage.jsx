@@ -4,7 +4,7 @@ import PageIndicators from './PageIndicators';
 import Animation from './Animation';
 import styles from './LayoutGrid.module.css';
 import RMSSDDisplay from './RMSSDDisplay';
-import welcomescreen_ from '../assets/welcomescreen_.mp4';
+
 
 function WelcomePage({ hrvData, currentPage, setCurrentPage }) {
   const rrIntervals = hrvData?.rrIntervals || [];

@@ -1,19 +1,20 @@
-// InstructionPage.jsx
 import React, { useState, useEffect } from 'react';
 import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
 import InstructionCard from './InstructionCard';
 import styles from './InstructionPage.module.css';
-import finalKoptelefoon from '../assets/finalkoptelefoon.mp4';
+
 
 const steps = [
-  { id: 0, animation: finalKoptelefoon },
-  { id: 1, animation: finalKoptelefoon },
-  { id: 2, animation: finalKoptelefoon },
-  { id: 3, animation: finalKoptelefoon },
-  { id: 4, animation: finalKoptelefoon },
-  { id: 5, animation: finalKoptelefoon },
+  { id: 0, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
+  { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wbel7ulpxq4zvemwnicvm/finalPolarAandoen.mp4?rlkey=h5vpcbjdk4uzobohm7dswdwy0&st=veqzlj5w' },
+  { id: 2, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/vf2exihjvcj5xbwt8fm3h/ademinuitklein.mp4?rlkey=3q924w6njj5wksby488yypq9a&st=61v4ad6n' },
+  { id: 3, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
+  { id: 4, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
+  { id: 5, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
 ];
+
+
 
 const InstructionPage = ({ setCurrentPage }) => {
   const [currentStep, setCurrentStep] = useState(0);

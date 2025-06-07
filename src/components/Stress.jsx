@@ -3,7 +3,6 @@ import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';  
 import styles from './LayoutGrid.module.css';
 import Animation from './Animation';
-import stress from '../assets/stresscreenv1_.mp4';
 
 const Stress = ({ onNextPage }) => {
   return (
