@@ -7,7 +7,7 @@ import Statistics1 from './components/Statistics1';
 import Stress from './components/Stress';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [hrvData, setHrvData] = useState(null);
 
   useEffect(() => {

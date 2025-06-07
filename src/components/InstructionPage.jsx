@@ -15,7 +15,6 @@ const steps = [
 ];
 
 
-
 const InstructionPage = ({ setCurrentPage }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -29,10 +28,10 @@ const InstructionPage = ({ setCurrentPage }) => {
   useEffect(() => {
     if (currentStep === 2) {
       const timeout = setTimeout(() => {
-        setCurrentPage(2); // Navigeer naar NullPage
+        setCurrentPage(2); // naar NullPage
       }, 1500);
 
-      return () => clearTimeout(timeout); // Clean-up als je snel doorklikt
+      return () => clearTimeout(timeout); // cleanup als je snel klikt
     }
   }, [currentStep, setCurrentPage]);
 
@@ -40,7 +39,7 @@ const InstructionPage = ({ setCurrentPage }) => {
     <div className={styles.gridContainer}>
       {/* Header */}
       <div className={styles.header}>
-        <PageIndicators totalPages={steps.length} currentPage={currentStep + 1} />
+      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={steps.length} currentPage={1} />)}
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
 
