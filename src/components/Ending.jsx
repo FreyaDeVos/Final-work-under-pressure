@@ -10,15 +10,13 @@ function Ending ({ setCurrentPage }) {
     return (
      <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <PageIndicators totalPages={7} currentPage={6} />
+           <PageIndicators totalPages={7} currentPage={6} />
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
-
       <div className={styles.mainContent}>
         <h2>Ending</h2>
         <button className={styles.nextButton} onClick={nextStep}>VOLGENDE</button>
       </div>
-
       <div className={styles.footer}></div>
     </div>
     )
