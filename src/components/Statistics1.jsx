@@ -52,6 +52,11 @@ function StatisticsPage({ currentPage, setCurrentPage }) {
   const hrvScore = hrvData?.rmssd?.toFixed(2) || '⌛';
   const maxRMSSD = rmssdValues.length > 0 ? Math.max(...rmssdValues) : 0;
 
+  // Functie om naar de volgende pagina te gaan
+  const nextStep = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
@@ -71,6 +76,7 @@ function StatisticsPage({ currentPage, setCurrentPage }) {
             <HRVBar rmssd={maxRMSSD} />
           </div>
         )}
+        <button className={styles.nextButton} onClick={nextStep}>VOLGENDE</button>
       </div>
 
       <div className={styles.footer}></div>

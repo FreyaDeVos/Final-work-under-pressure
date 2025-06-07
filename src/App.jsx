@@ -43,7 +43,7 @@ function App() {
     {currentPage === 1 && <InstructionPage setCurrentPage={setCurrentPage} />}
     {currentPage === 2 && <NullPage setCurrentPage={setCurrentPage} />}
     {currentPage === 3 && <Statistics1 hrvData={hrvData} setCurrentPage={setCurrentPage} />}
-    {currentPage === 4 && <Stress hrvData={hrvData} setCurrentPage={setCurrentPage} />}
+    {currentPage === 4 && <Stress setCurrentPage={setCurrentPage} />}
   </div>
 );
 

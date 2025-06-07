@@ -6,14 +6,11 @@ import styles from './LayoutGrid.module.css';
 import RMSSDDisplay from './RMSSDDisplay';
 
 
-function WelcomePage({ hrvData, currentPage, setCurrentPage }) {
-  const rrIntervals = hrvData?.rrIntervals || [];
+function WelcomePage({currentPage, setCurrentPage }) {
 
   return (
     <div className={styles.gridContainer}>
     <Animation src="https://dl.dropboxusercontent.com/scl/fi/gw1yfxe8y3ghk9ujxudz7/welcomescreen_.mp4?rlkey=v3jt2h4bqp9d9ylg4ize0grrz&st=9z55mul5" />
-
-
       <div className={styles.header}>
       <PageIndicators totalPages={7} currentPage={0} />
       <ExitButton onClick={() => setCurrentPage(0)} />

@@ -1,25 +1,33 @@
-import React from 'react';
-import PageIndicators from './PageIndicators'; 
-import ExitButton from './ExitButton';  
-import styles from './LayoutGrid.module.css';
-import Animation from './Animation';
+import React, { useState, useEffect } from 'react';
+import PageIndicators from './PageIndicators';
+import ExitButton from './ExitButton';
+import styles from './InstructionPage.module.css';
 
-const Stress = ({ onNextPage }) => {
-  return (
-    <div className={styles.gridContainer}>
+function Stress({ setCurrentPage }) {
+    return (
+     <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <PageIndicators totalPages={6} currentPage={4} onPageChange={() => {}} />
-        <ExitButton onClick={() => alert('Exit!')} />
+        <PageIndicators totalPages={7} currentPage={3} />
+        <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
+
       <div className={styles.mainContent}>
-      <div className={styles.animationBreath}>
-      <Animation src={breath} />
+        <h2>Live Statistieken</h2>
+        <p>❤️ Hartslag: {hr} bpm</p>
+        <p>🧠 RR-intervallen: {rrIntervals.join(', ') || 'Geen data'}</p>
+        <p>💓 HRV (RMSSD): {hrvScore}</p>
+
+        {timerEnded && (
+          <div>
+            <h3>Rustigste waarde in 40 seconden</h3>
+          </div>
+        )}
+        <button className={styles.nextButton} onClick={nextStep}>VOLGENDE</button>
       </div>
-      </div>
-      <div className={styles.footer}>
-      </div>
+
+      <div className={styles.footer}></div>
     </div>
-  );
-};
+    )
+}
 
 export default Stress;
