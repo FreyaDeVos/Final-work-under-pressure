@@ -1,0 +1,42 @@
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff4f1;
+  min-height: 100vh;
+
+}
+
+p,
+button {
+  font-family: 'Exo', sans-serif;
+  color: #2b2b2b;
+}
+
+button {
+  font-weight: 700;
+ 
+}
+
+
+h1,
+h2 {
+  font-family: Arial, sans-serif;
+  color: #2b2b2b;
+}
+
+a {
+  font-weight: 500;
+  color: #2b2b2b;
+}
+
+a:hover {
+  color: #ea5427;
+}
+
+
+script {
+  display: flex;
+}

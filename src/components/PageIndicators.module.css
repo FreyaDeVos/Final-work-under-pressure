@@ -1,0 +1,22 @@
+.indicatorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 0;
+    list-style: none;
+
+}
+
+.dot {
+    width: 30px;
+    /* groote aan te passen!!  */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.dot:hover {
+    transform: scale(1.1);
+}

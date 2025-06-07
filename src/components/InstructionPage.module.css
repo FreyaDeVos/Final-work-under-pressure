@@ -1,0 +1,49 @@
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cardContainer {
+    position: relative;
+    width: 320px;
+    height: 420px;
+    margin-bottom: 2rem;
+}
+
+
+.nextButton {
+    position: relative;
+    width: 40vw;
+    max-width: 220px;
+    aspect-ratio: 220 / 90;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-top: 4rem;
+    z-index: 5;
+    text-align: center;
+    background-image: url('../assets/volgende-frame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 82%;
+    padding: 0;
+}

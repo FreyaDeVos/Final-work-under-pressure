@@ -1,0 +1,94 @@
+.card {
+    position: absolute;
+    width: clamp(350px, 45vw, 350px);
+    height: clamp(350px, 45vh, 500px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    z-index: 0;
+    padding-top: 10%;
+    padding-bottom: 0%;
+}
+
+.mediaBox {
+    position: relative;
+    width: 90%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.media {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* stapel effect */
+.center {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+
+.left {
+    transform: translateX(-100%) scale(0.7);
+    opacity: 1;
+    z-index: 5;
+    filter: blur(4px);
+}
+
+.right {
+    transform: translateX(100%) scale(0.7);
+    opacity: 1;
+    z-index: 4;
+    filter: blur(4px);
+}
+
+.hidden {
+    transform: translateX(120%) scale(0.5);
+    opacity: 0.65;
+    z-index: 3;
+    filter: blur(4px);
+}
+
+.hiddenLeft {
+    transform: translateX(-120%) scale(0.5);
+    opacity: 0.65;
+    z-index: 0;
+    filter: blur(4px);
+}
+
+.nextButton {
+    position: relative;
+    width: 40vw;
+    max-width: 220px;
+    aspect-ratio: 220 / 90;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 4rem;
+    z-index: 5;
+    text-align: center;
+    background-image: url('../assets/volgende-frame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 0;
+}

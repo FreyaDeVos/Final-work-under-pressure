@@ -1,0 +1,152 @@
+.gridContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 1rem;
+    position: relative;
+    align-items: center;
+}
+
+/* Main content */
+.mainContent {
+    grid-row: 2;
+    grid-column: 1;
+    z-index: 5;
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Footer */
+.footer {
+    grid-row: 3;
+    grid-column: 1;
+    z-index: 5;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+/* tekst ondr titel */
+.overlayText {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 1.2rem;
+}
+
+.nextButton {
+    position: relative;
+    width: 40vw;
+    max-width: 220px;
+    aspect-ratio: 220 / 90;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-top: 4rem;
+    z-index: 5;
+    text-align: center;
+    background-image: url('../assets/volgende-frame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 82%;
+    padding: 0;
+}
+
+.cardContainer {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.card {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Middelste kaart = de huidige stap */
+.center {
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+
+/* Linker kaart = vorige stap */
+.left {
+    transform: translateX(-120px) scale(0.8);
+    z-index: 2;
+    opacity: 0.6;
+}
+
+/* Rechter kaart  */
+.right {
+    transform: translateX(120px) scale(0.8);
+    z-index: 2;
+    opacity: 0.6;
+}
+
+/* Verborgen / nog te komen kaarten */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.backgroundLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.backgroundVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animationBlockTimeline {
+    margin-right: 5%;
+    align-self: center;
+}
+
+.animationBlockTimeline video {
+    width: 95%;
+    height: 90%;
+    display: block;
+}
