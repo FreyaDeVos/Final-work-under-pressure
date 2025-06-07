@@ -8,7 +8,7 @@ const NullPage = ({ setCurrentPage }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentPage((prev) => prev + 1);
-    }, 6000); // 40 seconden!!!!
+    }, 2000); // 40 seconden!!!!
 
     return () => clearTimeout(timer);
   }, [setCurrentPage]);
