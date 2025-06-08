@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ExitButton.module.css';
-import exitIcon from '../assets/exit.svg'; // ⬅️ pas dit pad aan als nodig
+import exitIcon from '../assets/exit.png'; 
 
 
 const ExitButton = ({ onClick }) => {

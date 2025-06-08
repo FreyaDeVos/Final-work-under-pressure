@@ -112,9 +112,9 @@
 
 .hotspotButton {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
     border: none;
     cursor: pointer;
     pointer-events: all;
@@ -128,7 +128,7 @@
 
 .hotspot2 {
     top: 25%;
-    left: 90%;
+    left: 85%;
 }
 
 .hotspot3 {
@@ -138,7 +138,7 @@
 
 .hotspot4 {
     top: 70%;
-    left: 88%;
+    left: 85%;
 }
 
 .hotspot5 {
@@ -148,7 +148,7 @@
 
 .hotspot6 {
     top: 72%;
-    left: 62%;
+    left: 60%;
 }
 
 
@@ -167,7 +167,7 @@
 .popupBackground {
     position: relative;
     aspect-ratio: 100 / 100;
-    background-image: url('https://dl.dropboxusercontent.com/scl/fi/gs5ksyedvx5t8z5dhnzci/borderpopup.png?rlkey=0x6we28h36md8helqpee0j9fr&st=b0');
+    background-image: url('https://dl.dropboxusercontent.com/scl/fi/vs7vz4ku0xoyolvdd7auj/borderpopup.png?rlkey=zs1phe4xn3egkdlgywgntw621');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

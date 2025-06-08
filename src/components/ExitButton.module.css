@@ -13,14 +13,12 @@
     justify-content: center;
 }
 
-/* Als je een <img> gebruikt voor de SVG */
-.exitButton img,
-.exitButton svg {
+
+.exitButton img {
     width: 20px;
     height: 20px;
+    scale: 1.2;
     display: block;
-    filter: brightness(200%);
-    /* komt overeen met 'darkgray' look */
     transition: filter 0.2s, transform 0.2s;
 }
 

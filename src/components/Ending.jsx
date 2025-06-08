@@ -8,7 +8,7 @@ const tips = {
   1: "Wist je dat ... zelfs vrolijke muziek stressvol kan zijn als het te luid is?",
   2: "Wist je dat ... door lange schermtijd verkeert je brein in een aanhoudende staat van alertheid, wat leidt tot verhoogde stress.",
   3: "Wist je dat ... externe prikkels kunnen een stressreactie uitlokken zonder dat je het bewust doorhebt.",
-  4: "Wist je dat ... luid geluid kan je lichaam automatisch in een vecht-of-vluchtmodus zetten – ook al is er geen echt gevaar.",
+  4: "Wist je dat ... luid geluid je lichaam automatisch in een vecht-of-vluchtmodus kan zetten – ook al is er geen echt gevaar.",
   5: "Wist je dat ... het geluid van een huilende baby wordt wereldwijd beschouwd als een van de meest stressverhogende geluiden.",
   6: "Wist je dat ... stress door externe prikkels verlaagt je werkgeheugen, waardoor je minder informatie kunt vasthouden."
 };
@@ -49,6 +49,7 @@ const handleHotspotClick = (e, num) => {
       <div className={styles.mainContent}>
         <div className={styles.textAndButton}>
           <p className={styles.overlayText}>
+            <h1>Under pressure</h1>
             Je hebt ervaren hoe jouw lichaam reageert op externe prikkels. <br />
             Meer weten? <br />
             Ontdek hieronder boeiende weetjes en tips over hoe je lichaam met prikkels omgaat.

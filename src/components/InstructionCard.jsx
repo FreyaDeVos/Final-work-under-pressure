@@ -12,7 +12,7 @@ const InstructionCard = ({ step, position }) => {
         muted
         loop
         playsInline
-      /><img src={frameImage} alt="frame" className={styles.frame} />
+      />
     </div>
   );
 };
