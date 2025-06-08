@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import ExitButton from './ExitButton';
 import styles from './LayoutGrid.module.css';
 import Animation from './Animation';
 
-function Stress({ setCurrentPage }) {
-      const nextStep = () => {
-    setCurrentPage(5); 
-  };
+const Stress = ({ setCurrentPage }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentPage((prev) => prev + 1);
+    }, 2000); // 40 seconden!!!!
+
+    return () => clearTimeout(timer);
+  }, [setCurrentPage]);
     return (
      <div className={styles.gridContainer}>
       <div className={styles.header}>
