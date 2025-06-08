@@ -61,61 +61,6 @@
     z-index: 10;
 }
 
-.cardContainer {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.cardWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 100%;
-}
-
-.card {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-/* Middelste kaart = de huidige stap */
-.center {
-    transform: translateX(0) scale(1);
-    z-index: 3;
-    opacity: 1;
-}
-
-/* Linker kaart = vorige stap */
-.left {
-    transform: translateX(-120px) scale(0.8);
-    z-index: 2;
-    opacity: 0.6;
-}
-
-/* Rechter kaart  */
-.right {
-    transform: translateX(120px) scale(0.8);
-    z-index: 2;
-    opacity: 0.6;
-}
-
-/* Verborgen / nog te komen kaarten */
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
 .backgroundLayer {
     position: fixed;
     top: 0;
@@ -152,4 +97,94 @@
     align-items: center;
     padding-bottom: 2rem;
     /* optioneel, voor ruimte boven de rand */
+}
+
+.hotspotContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+    /* zodat de achtergrond clickable blijft, tenzij bij knoppen */
+}
+
+.hotspotButton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* Voorbeeldposities — pas deze per knop aan */
+.hotspot1 {
+    top: 21%;
+    left: 13%;
+}
+
+.hotspot2 {
+    top: 25%;
+    left: 90%;
+}
+
+.hotspot3 {
+    top: 75%;
+    left: 4%;
+}
+
+.hotspot4 {
+    top: 70%;
+    left: 88%;
+}
+
+.hotspot5 {
+    top: 72%;
+    left: 28%;
+}
+
+.hotspot6 {
+    top: 72%;
+    left: 62%;
+}
+
+
+.tipPopup {
+    position: absolute;
+    z-index: 30;
+    cursor: pointer;
+    width: clamp(180px, 30vw, 240px);
+    /* responsief */
+    aspect-ratio: 1 / 1.2;
+    /* afhankelijk van je framevorm */
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popupBackground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://dl.dropboxusercontent.com/scl/fi/gs5ksyedvx5t8z5dhnzci/borderpopup.png?rlkey=0x6we28h36md8helqpee0j9fr&st=b0');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.popupText {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
 }
