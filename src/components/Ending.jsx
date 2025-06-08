@@ -75,16 +75,18 @@ const handleHotspotClick = (e, num) => {
           ))}
 
           {activeTip && (
-            <div
-              className={styles.tipPopup}
-              style={{
-                top: `${activeTip.top}px`,
-                left: `${activeTip.left}px`,
-                transform: 'translate(-50%, -50%)'}} onClick={() => setActiveTip(null)}>
-            <div className={styles.popupBackground} />
-             <p>{tips[activeTip.number]}</p>
-            </div>
-          )}
+  <div
+    className={styles.tipPopup}
+    style={{
+      top: `${activeTip.top}px`,
+      left: `${activeTip.left}px`,
+      transform: 'translate(-50%, -50%)'
+    }}
+    onClick={() => setActiveTip(null)}>
+  <div className={styles.popupBackground}>
+    <p className={styles.popupText}>{tips[activeTip.number]}</p>
+  </div>
+  </div>)}
         </div>
       </div>
     </div>
