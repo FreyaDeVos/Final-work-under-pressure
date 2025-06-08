@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
-import styles from './LayoutGrid.module.css'
 import Animation from './Animation';
+import styles from './Ending.module.css';
 
-function Ending ({ setCurrentPage }) {
-      const nextStep = () => {
-    setCurrentPage(0); // of een andere pagina waar je naartoe wil navigeren
+function Ending({ setCurrentPage }) {
+  const nextStep = () => {
+    setCurrentPage(0); // terug naar start
   };
-    return (
-     <div className={styles.gridContainer}>
+
+  return (
+    <div className={styles.gridContainer}>
       <div className={styles.header}>
         <PageIndicators totalPages={7} currentPage={6} />
-        <ExitButton onClick={() => setCurrentPage(0)} />
+        <ExitButton onClick={nextStep} />
       </div>
+
       <div className={styles.mainContent}>
-         <div className={styles.fullscreenBackground}>``
-       <Animation src="https://dl.dropboxusercontent.com/scl/fi/fvd0wrr6yhkaj7y3bgxgm/ending.mp4?rlkey=ga2olgd29b2o6ip4os86iy6o5&st=ewjstr0t" />
+        <div className={styles.textAndButton}>
+  <p className={styles.overlayText}>
+   Je hebt ervaren hoe jouw lichaam reageert op externe prikkels. <br></br>Meer weten? <br></br> 
+   Ontdek hieronder boeiende weetjes en tips over hoe je lichaam met prikkels omgaat..
+  </p>
+  <button
+    className={styles.nextButtonEnding}
+    onClick={() => setCurrentPage(0)} // terug naar start
+  >
+    TERUG NAAR START
+  </button>
+</div>
+        <div className={styles.fullscreenBackground}>
+          <Animation src="https://dl.dropboxusercontent.com/scl/fi/px8djurjefxw2xvjo4suk/ending01.mp4?rlkey=epmvvinj2c3jp3qpfbb4f05zt&st=6ckthjpr" />
+        </div>
       </div>
-        <button className={styles.nextButton} onClick={nextStep}>Einde</button>
- 
-      </div>
-      <div className={styles.footer}></div>
-    
     </div>
-    )
+  );
 }
 
 export default Ending;

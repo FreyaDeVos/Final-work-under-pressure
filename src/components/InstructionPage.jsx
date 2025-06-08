@@ -37,13 +37,10 @@ const InstructionPage = ({ setCurrentPage }) => {
 
   return (
     <div className={styles.gridContainer}>
-      {/* Header */}
       <div className={styles.header}>
-      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={steps.length} currentPage={1} />)}
+      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={7} currentPage={1} />)}
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
-
-      {/* Card area */}
       <div className={styles.mainContent}>
         <div className={styles.cardContainer}>
           {steps.map((step, index) => {

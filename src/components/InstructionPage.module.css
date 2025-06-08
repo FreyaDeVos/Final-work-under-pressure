@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .mainContent {
     flex: 1;
     display: flex;
