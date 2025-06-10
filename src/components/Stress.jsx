@@ -7,7 +7,7 @@ const Stress = ({ setCurrentPage }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentPage((prev) => prev + 1);
-    }, 2000); // 40 seconden!!!!
+    }, 400); // 40 seconden!!!!
 
     return () => clearTimeout(timer);
   }, [setCurrentPage]);
