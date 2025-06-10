@@ -9,11 +9,11 @@ import Statistics2 from './components/Statistics2';
 import Ending from './components/Ending';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [hrvData, setHrvData] = useState(null);
 
   useEffect(() => {
-    const socket = io('http://localhost:3001'); // Pas aan indien je backend op andere url draait
+    const socket = io('http://localhost:3001');
 
     socket.on('connect', () => {
       console.log('✅ Verbonden met backend via Socket.IO');
@@ -33,24 +33,28 @@ function App() {
     };
   }, []);
 
- return (
-  <div style={{ position: 'relative', height: '100vh' }}>
-    {currentPage === 0 && (
-      <WelcomePage
-        hrvData={hrvData}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-    )}
-    {currentPage === 1 && <InstructionPage setCurrentPage={setCurrentPage} />}
-    {currentPage === 2 && <NullPage setCurrentPage={setCurrentPage} />}
-    {currentPage === 3 && <Statistics1 hrvData={hrvData} setCurrentPage={setCurrentPage} />}
-    {currentPage === 4 && <Stress setCurrentPage={setCurrentPage} />}
-    {currentPage === 5 && <Statistics2 setCurrentPage={setCurrentPage} />}
-    {currentPage === 6 && <Ending setCurrentPage={setCurrentPage} />}
-  </div>
-);
+  const goToNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
 
+  return (
+    <div style={{ position: 'relative', height: '100vh' }}>
+      {currentPage === 1 && <WelcomePage hrvData={hrvData} />}
+      {currentPage === 2 && <InstructionPage />}
+      {currentPage === 3 && <NullPage />}
+      {/* Statistics1 - Hoogste HRV tijdens rustgevende video */}
+      {currentPage === 4 && <Statistics1 hrvData={hrvData} onNextPage={goToNextPage} />}
+      {/* Stress pagina */}
+      {currentPage === 5 && <Stress hrvData={hrvData} />}
+      {/* Statistics2 - Laagste HRV na stress test */}
+      {currentPage === 6 && <Statistics2 hrvData={hrvData} onNextPage={goToNextPage} />}
+      {/* Bestaande Ending pagina */}
+      {currentPage === 7 && <Ending />}
+      
+      {/* NextArrow precies zoals jij het had */}
+      {currentPage !== 4 && currentPage !== 6 && currentPage < 7 && <NextArrow onClick={goToNextPage} />}
+    </div>
+  );
 }
 
 export default App;
