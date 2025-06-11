@@ -7,13 +7,15 @@ import Statistics1 from './components/Statistics1';
 import Stress from './components/Stress';
 import Statistics2 from './components/Statistics2';
 import Ending from './components/Ending';
+import Statistics2 from './components/Statistics2';
+import Ending from './components/Ending';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [hrvData, setHrvData] = useState(null);
 
   useEffect(() => {
-    const socket = io('http://localhost:3001'); // Pas aan indien je backend op andere url draait
+    const socket = io('http://localhost:3001');
 
     socket.on('connect', () => {
       console.log('✅ Verbonden met backend via Socket.IO');

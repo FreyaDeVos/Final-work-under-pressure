@@ -7,7 +7,7 @@ const NullPage = ({ setCurrentPage }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentPage((prev) => prev + 1);
-    }, 2000); // 40 seconden!!!!
+    }, 6000); // 40 seconden!!!!
 
     return () => clearTimeout(timer);
   }, [setCurrentPage]);
@@ -20,8 +20,10 @@ const NullPage = ({ setCurrentPage }) => {
       <div className={styles.fullscreenBackground}>
         <Animation src="https://dl.dropboxusercontent.com/scl/fi/y8zcw8t2e5z8gc8czove5/breathV3.mp4?rlkey=9rvtel8fpis1xjrk2xl3uz0um&st=48gxw67r" />
       </div>
-      <div className={styles.header}><div className={styles.animationBlockTimeline}>
-          <Animation src="https://dl.dropboxusercontent.com/scl/fi/mfquf11hkeysv315itg5e/tijdsbalk_2.mp4?rlkey=0ctyhjeoubptaup0t4zn6ym4f&st=c8nefx22&dl=1" />
+      <div className={styles.header}>
+        <div className={styles.animationBlockTimeline}>
+          <Animation src="https://dl.dropboxusercontent.com/scl/fi/n51ri0lnnfvrpbe51eoqy/tijdsbalk.mp4?rlkey=0wjcrvj9ffzkxxyj6vuzwze0i&st=o0so9xcc
+" />
         </div>
         </div>
       <div className={styles.mainContent}></div>
