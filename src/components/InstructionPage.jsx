@@ -6,9 +6,9 @@ import styles from './InstructionPage.module.css';
 
 
 const steps = [
-  { id: 0, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
-  { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wbel7ulpxq4zvemwnicvm/finalPolarAandoen.mp4?rlkey=h5vpcbjdk4uzobohm7dswdwy0&st=veqzlj5w' },
-  { id: 2, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/vf2exihjvcj5xbwt8fm3h/ademinuitklein.mp4?rlkey=3q924w6njj5wksby488yypq9a&st=61v4ad6n' },
+  { id: 0, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/tohzccmykj47c93zxu017/finalkoptelefoon.mp4?rlkey=nixu9olop3m368m6naqa5j3x7&st=qf15xvvi' },
+  { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/k14rec00487zm6pby1xlh/finalPolarAandoen_2.mp4?rlkey=dsogyc059bsonjymqha8oq74p&st=6b92wvx3' },
+  { id: 2, animation: 'https://dl.dropboxusercontent.com/scl/fi/nkvyjm94umhnsk96f8yty/breath.mp4?rlkey=3m0x4qfpe6phyhuo8cc9jmgq3&st=j9vf2v7g&dl=1' },
   { id: 3, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
   { id: 4, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
   { id: 5, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
@@ -37,13 +37,10 @@ const InstructionPage = ({ setCurrentPage }) => {
 
   return (
     <div className={styles.gridContainer}>
-      {/* Header */}
       <div className={styles.header}>
-      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={steps.length} currentPage={1} />)}
+      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={7} currentPage={1} />)}
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
-
-      {/* Card area */}
       <div className={styles.mainContent}>
         <div className={styles.cardContainer}>
           {steps.map((step, index) => {
