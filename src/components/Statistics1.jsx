@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import p5 from 'p5';
+import React from 'react';
 import PageIndicators from './PageIndicators';
+import ExitButton from './ExitButton';
 import ExitButton from './ExitButton';
 import styles from './LayoutGrid.module.css';
 import statsStyles from './Statistics.module.css';
@@ -155,11 +157,15 @@ const Statistics1 = ({ hrvData, onNextPage }) => {
     setHighestHRV(0);
   };
 
+
+const Statistics1 = ({ setCurrentPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
         <PageIndicators totalPages={6} currentPage={3} onPageChange={() => {}} />
         <ExitButton onClick={() => alert('Exit!')} />
+        <PageIndicators totalPages={6} currentPage={3} onPageChange={() => {}} />
+        <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
       
       <div className={styles.mainContent}>
@@ -209,11 +215,23 @@ const Statistics1 = ({ hrvData, onNextPage }) => {
             </div>
           )}
         </div>
+        {/* Jouw content hier */}
       </div>
       
       <div className={styles.footer}></div>
+
+      <div className={styles.footer}>
+        <button
+          className={styles.nextButton}
+          onClick={() => setCurrentPage(4)} // 4 is Stress-pagina
+        >
+          VOLGENDE
+        </button>
+      </div>
     </div>
   );
 };
+};
+
 
 export default Statistics1;
