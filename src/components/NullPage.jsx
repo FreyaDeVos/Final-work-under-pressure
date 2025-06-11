@@ -22,7 +22,7 @@ const NullPage = ({ setCurrentPage }) => {
       </div>
       <div className={styles.header}>
         <div className={styles.animationBlockTimeline}>
-          <Animation src="https://dl.dropboxusercontent.com/scl/fi/n51ri0lnnfvrpbe51eoqy/tijdsbalk.mp4?rlkey=0wjcrvj9ffzkxxyj6vuzwze0i&st=o0so9xcc
+          <Animation src="https://dl.dropboxusercontent.com/scl/fi/mfquf11hkeysv315itg5e/tijdsbalk_2.mp4?rlkey=0ctyhjeoubptaup0t4zn6ym4f&st=c8nefx22
 " />
         </div>
         </div>
