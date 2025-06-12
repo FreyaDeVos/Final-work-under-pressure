@@ -22,7 +22,6 @@
     margin-bottom: 2rem;
 }
 
-
 .nextButton {
     position: relative;
     width: 40vw;
@@ -40,4 +39,18 @@
     background-position: center;
     background-size: 82%;
     padding: 0;
+}
+
+.fadeOut {
+    animation: fadeOut 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }

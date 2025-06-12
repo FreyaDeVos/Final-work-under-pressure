@@ -18,22 +18,25 @@ const steps = [
 const InstructionPage = ({ setCurrentPage }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
+  const [fade, setFade] = useState(false);
+
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1);
     }
   };
 
-  // Wanneer je op step 2 komt (na klikken op step 1), wacht dan 1.5s en ga naar NullPage
-  useEffect(() => {
-    if (currentStep === 2) {
-      const timeout = setTimeout(() => {
-        setCurrentPage(2); // naar NullPage
-      }, 1500);
+  // Wanneer je op step 2 komt (na klikken op step 1), wacht dan 4s en ga naar NullPage
+    useEffect(() => {
+  if (currentStep === 2) {
+    // fade 1
+    setFade(true);
+    const timeout = setTimeout(() => {
+      setCurrentPage(2); // naar NullPage
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }}, [currentStep, setCurrentPage]);
 
-      return () => clearTimeout(timeout); // cleanup als je snel klikt
-    }
-  }, [currentStep, setCurrentPage]);
 
   return (
     <div className={styles.gridContainer}>
@@ -41,24 +44,20 @@ const InstructionPage = ({ setCurrentPage }) => {
       {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={7} currentPage={1} />)}
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
-      <div className={styles.mainContent}>
+      <div className={`${styles.mainContent} ${fade ? styles.fadeOut : ''}`}>
         <div className={styles.cardContainer}>
           {steps.map((step, index) => {
             let position = 'hidden';
             if (index === currentStep) position = 'center';
             else if (index === currentStep - 1) position = 'left';
             else if (index === currentStep + 1) position = 'right';
-
             return (
               <InstructionCard
                 key={step.id}
                 step={step}
                 position={position}
                 index={index}
-              />
-            );
-          })}
-        </div>
+            /> );})}</div>
       {currentStep !== 2 && (
       <button className={styles.nextButton} onClick={nextStep}>VOLGENDE</button>)}
       </div>
