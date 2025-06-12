@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
 import Animation from './Animation';
@@ -13,83 +13,103 @@ const tips = {
   6: "Wist je dat ... stress door externe prikkels verlaagt je werkgeheugen, waardoor je minder informatie kunt vasthouden."
 };
 
-
 function Ending({ setCurrentPage }) {
   const [activeTip, setActiveTip] = useState(null);
+  const [isExiting, setIsExiting] = useState(false);
 
-  const nextStep = () => {
-    setCurrentPage(0); // terug naar start
+  // Na 4 seconden op exitOverlay → terug naar startpagina
+  useEffect(() => {
+    if (isExiting) {
+      const timeout = setTimeout(() => {
+        setCurrentPage(0); // terug naar startpagina
+      }, 4000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isExiting, setCurrentPage]);
+
+  const handleBackToStart = () => {
+    setIsExiting(true); // alleen overlay tonen, useEffect doet de navigatie
   };
 
-const handleHotspotClick = (e, num) => {
-  if (activeTip?.number === num) {
-    setActiveTip(null); // sluit popup bij herklik op dezelfde
-    return;
-  }
+  const handleHotspotClick = (e, num) => {
+    if (activeTip?.number === num) {
+      setActiveTip(null);
+      return;
+    }
 
-  const rect = e.target.getBoundingClientRect();
-  const scrollY = window.scrollY || window.pageYOffset;
-  const scrollX = window.scrollX || window.pageXOffset;
+    const rect = e.target.getBoundingClientRect();
+    const scrollY = window.scrollY || window.pageYOffset;
+    const scrollX = window.scrollX || window.pageXOffset;
 
-  setActiveTip({
-    number: num,
-    top: rect.top + rect.height / 2 + scrollY,
-    left: rect.left + rect.width / 2 + scrollX
-  });
-};
-
+    setActiveTip({
+      number: num,
+      top: rect.top + rect.height / 2 + scrollY,
+      left: rect.left + rect.width / 2 + scrollX
+    });
+  };
 
   return (
     <div className={styles.gridContainer}>
-      <div className={styles.header}>
-        <PageIndicators totalPages={7} currentPage={6} />
-        <ExitButton onClick={nextStep} />
-      </div>
-
-      <div className={styles.mainContent}>
-        <div className={styles.textAndButton}>
-          <p className={styles.overlayText}>
-            <h1>Under pressure</h1>
-            Je hebt ervaren hoe jouw lichaam reageert op externe prikkels. <br />
-            Meer weten? <br />
-            Ontdek hieronder boeiende weetjes en tips over hoe je lichaam met prikkels omgaat.
+      {isExiting ? (
+        <div className={styles.exitOverlay}>
+          <p className={styles.reminderText}>
+            Hang de koptelefoon en stressmeter terug! <br /> Bedankt!
           </p>
-          <button
-            className={styles.nextButtonEnding}
-            onClick={nextStep}
-          >
-            TERUG NAAR START
-          </button>
         </div>
+      ) : (
+        <>
+          <div className={styles.header}>
+            <PageIndicators totalPages={7} currentPage={6} />
+            <ExitButton onClick={handleBackToStart} />
+          </div>
 
-        <div className={styles.fullscreenBackground}>
-          <Animation src="https://dl.dropboxusercontent.com/scl/fi/px8djurjefxw2xvjo4suk/ending01.mp4?rlkey=epmvvinj2c3jp3qpfbb4f05zt&st=6ckthjpr" />
-        </div>
+          <div className={styles.mainContent}>
+            <div className={styles.textAndButton}>
+              <div className={styles.overlayText}>
+                <h1>Under pressure</h1>
+                <p>
+                  Je hebt ervaren hoe jouw lichaam reageert op externe prikkels. <br />
+                  Meer weten? <br />
+                  Ontdek hieronder boeiende weetjes en tips over hoe je lichaam met prikkels omgaat.
+                </p>
+              </div>
+              <button className={styles.nextButtonEnding} onClick={handleBackToStart}>
+                TERUG NAAR START
+              </button>
+            </div>
 
-        <div className={styles.hotspotContainer}>
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <button
-              key={num}
-              className={`${styles.hotspotButton} ${styles[`hotspot${num}`]}`}
-              onClick={(e) => handleHotspotClick(e, num)}
-            />
-          ))}
+            <div className={styles.fullscreenBackground}>
+              <Animation src="https://dl.dropboxusercontent.com/scl/fi/px8djurjefxw2xvjo4suk/ending01.mp4?rlkey=epmvvinj2c3jp3qpfbb4f05zt&st=6ckthjpr" />
+            </div>
 
-          {activeTip && (
-  <div
-    className={styles.tipPopup}
-    style={{
-      top: `${activeTip.top}px`,
-      left: `${activeTip.left}px`,
-      transform: 'translate(-50%, -50%)'
-    }}
-    onClick={() => setActiveTip(null)}>
-  <div className={styles.popupBackground}>
-    <p className={styles.popupText}>{tips[activeTip.number]}</p>
-  </div>
-  </div>)}
-        </div>
-      </div>
+            <div className={styles.hotspotContainer}>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <button
+                  key={num}
+                  className={`${styles.hotspotButton} ${styles[`hotspot${num}`]}`}
+                  onClick={(e) => handleHotspotClick(e, num)}
+                />
+              ))}
+
+              {activeTip && (
+                <div
+                  className={styles.tipPopup}
+                  style={{
+                    top: `${activeTip.top}px`,
+                    left: `${activeTip.left}px`,
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                  onClick={() => setActiveTip(null)}
+                >
+                  <div className={styles.popupBackground}>
+                    <p className={styles.popupText}>{tips[activeTip.number]}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

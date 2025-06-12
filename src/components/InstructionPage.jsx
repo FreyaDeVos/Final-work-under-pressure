@@ -10,10 +10,9 @@ const steps = [
   { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/k14rec00487zm6pby1xlh/finalPolarAandoen_2.mp4?rlkey=dsogyc059bsonjymqha8oq74p&st=6b92wvx3' },
   { id: 2, animation: 'https://dl.dropboxusercontent.com/scl/fi/nkvyjm94umhnsk96f8yty/breath.mp4?rlkey=3m0x4qfpe6phyhuo8cc9jmgq3&st=j9vf2v7g&dl=1' },
   { id: 3, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
-  { id: 4, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
+  { id: 4, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/ccjblk7tgse46m519yzgs/stressklein.mp4?rlkey=we4ofqd4y3jc9j6udu4tjiswa&st=bsekab1e&dl=0' },
   { id: 5, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
 ];
-
 
 const InstructionPage = ({ setCurrentPage }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -33,7 +32,7 @@ const InstructionPage = ({ setCurrentPage }) => {
     setFade(true);
     const timeout = setTimeout(() => {
       setCurrentPage(2); // naar NullPage
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timeout);
   }}, [currentStep, setCurrentPage]);
 
