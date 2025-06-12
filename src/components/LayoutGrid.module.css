@@ -140,3 +140,35 @@
     height: 90%;
     display: block;
 }
+
+.legendWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    font-family: inherit;
+    /* neemt font van <p> over */
+    text-align: center;
+}
+
+.legendRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.legendColor {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+}

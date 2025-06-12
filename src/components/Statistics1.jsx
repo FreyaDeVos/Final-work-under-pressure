@@ -15,23 +15,15 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
       </div>
 
       <main className={styles.mainContent}>
-        <h1>Stresslevel in rust</h1>
-        <p>hoe hoger je stresslevel hoe </p>
- <StressLegend />
+        <h1>Stresslevel in rust</h1><StressLegend />
         {maxRMSSD !== null ? (
-          <>
-            <p>Hoogste RMSSD-waarde: {maxRMSSD.toFixed(2)}</p>
-            <P5Chart maxRMSSD={maxRMSSD} />
-          </>
+          <><P5Chart maxRMSSD={maxRMSSD} /></>
         ) : (
           <p>Geen RMSSD-waarde beschikbaar</p>
         )}
-
-        <button className={styles.nextButton} onClick={() => setCurrentPage(4)}>
-          Volgende
+        <button className={styles.nextButton} onClick={() => setCurrentPage(4)}>Volgende
         </button>
       </main>
-
       <footer className={styles.footer}></footer>
     </div>
   );
