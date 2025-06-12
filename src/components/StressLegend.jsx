@@ -4,7 +4,6 @@ import styles from './LayoutGrid.module.css'; // vergeet dit niet!
 const StressLegend = () => {
   return (
     <div className={styles.legendWrapper}>
-      <h4>Legenda</h4>
       <div className={styles.legendRow}>
         <div className={styles.legendItem}>
           <div className={styles.legendColor} style={{ backgroundColor: '#ffa0d3' }}></div>

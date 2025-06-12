@@ -1,0 +1,16 @@
+.chartContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    user-select: none;
+    font-family: 'Exo', sans-serif;
+}
+
+.chartText {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2B2B2B;
+    font-size: 1.1rem;
+
+}

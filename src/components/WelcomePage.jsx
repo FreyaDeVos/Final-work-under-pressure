@@ -23,8 +23,6 @@ function WelcomePage({currentPage, setCurrentPage }) {
         </p>
         <button className={styles.nextButton} onClick={() => setCurrentPage(currentPage + 1)}>VOLGENDE</button>
       </div>
-
-      <div className={styles.footer}></div>
     </div>
   );
 }

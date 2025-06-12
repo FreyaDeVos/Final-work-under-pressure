@@ -12,11 +12,7 @@ const Statistics2 = ({ setCurrentPage }) => {
       </div>
 
       <div className={styles.mainContent}>
-        {/* leeg of niks */}
-      </div>
-
-      <div className={styles.footer}>
-        <button className={styles.nextButton} onClick={() => setCurrentPage(6)}>
+           <button className={styles.nextButton} onClick={() => setCurrentPage(6)}>
           VOLGENDE
         </button>
       </div>

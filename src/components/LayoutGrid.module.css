@@ -32,7 +32,6 @@
 
 .mainContent h1 {
     font-size: 3rem;
-    /* pas aan naar de gewenste grootte */
     font-weight: 700;
     margin: 0;
     text-align: center;
@@ -144,29 +143,49 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 2rem;
-    font-family: inherit;
-    /* neemt font van <p> over */
     text-align: center;
+    font-family: 'Exo', sans-serif;
 }
 
 .legendRow {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    padding-top: 0.5rem;
 }
 
 .legendItem {
     display: flex;
     align-items: center;
     font-size: 1rem;
+    font-family: 'Exo', sans-serif;
 }
 
 .legendColor {
-    width: 20px;
-    height: 20px;
+    width: 1.5rem;
+    height: 1.5rem;
     margin-right: 0.5rem;
     border-radius: 4px;
+}
+
+.chartGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.chartRow {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.chartLabel {
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 200px;
+    text-align: left;
 }
