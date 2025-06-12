@@ -7,7 +7,7 @@ const NullPage = ({ setCurrentPage, rmssdBuffer }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentPage((prev) => prev + 1);
-    }, 40000); // 40 seconden
+    }, 4000); // 40 seconden
 
     return () => clearTimeout(timer);
   }, [setCurrentPage]);

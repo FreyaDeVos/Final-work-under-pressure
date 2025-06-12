@@ -3,18 +3,21 @@ import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
 import styles from './LayoutGrid.module.css';
 import P5Chart from './P5Chart';
+import StressLegend from './StressLegend';
+
 
 const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
+        <PageIndicators totalPages={7} currentPage={4} />
         <ExitButton onClick={() => setCurrentPage(0)} />
-        <PageIndicators currentPage={3} />
       </div>
 
       <main className={styles.mainContent}>
-        <h1>Statistieken</h1>
-
+        <h1>Stresslevel in rust</h1>
+        <p>hoe hoger je stresslevel hoe </p>
+ <StressLegend />
         {maxRMSSD !== null ? (
           <>
             <p>Hoogste RMSSD-waarde: {maxRMSSD.toFixed(2)}</p>

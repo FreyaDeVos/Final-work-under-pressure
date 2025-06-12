@@ -6,12 +6,10 @@
     width: 100%;
     padding: 8px 0;
     list-style: none;
-
 }
 
 .dot {
     width: 30px;
-    /* groote aan te passen!!  */
     height: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
