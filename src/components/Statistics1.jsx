@@ -37,7 +37,6 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
           Volgende
         </button>
       </main>
-      <footer className={styles.footer}></footer>
     </div>
   );
 };

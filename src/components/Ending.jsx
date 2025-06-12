@@ -107,8 +107,7 @@ function Ending({ setCurrentPage }) {
                 </div>
               )}
             </div>
-          </div>
-        </>
+          </div></>
       )}
     </div>
   );

@@ -26,7 +26,6 @@ const Stress = ({ setCurrentPage }) => {
 " />
       </div>
       </div>
-
     </div>
     )
 }

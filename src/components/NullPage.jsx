@@ -27,9 +27,7 @@ const NullPage = ({ setCurrentPage, rmssdBuffer }) => {
           <Animation src="https://dl.dropboxusercontent.com/scl/fi/mfquf11hkeysv315itg5e/tijdsbalk_2.mp4?rlkey=0ctyhjeoubptaup0t4zn6ym4f&st=c8nefx22" />
         </div>
       </div>
-
       <div className={styles.mainContent}></div>
-      <div className={styles.footer}></div>
     </div>
   );
 };
