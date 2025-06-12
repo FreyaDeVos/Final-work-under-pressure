@@ -10,12 +10,12 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <PageIndicators totalPages={7} currentPage={4} />
+        <PageIndicators totalPages={8} currentPage={3} />
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
 
       <main className={styles.mainContent}>
-        <h1>Stresslevel in rust</h1>
+        <h1>STRESSLEVEL IN RUST</h1>
         <StressLegend />
 
         <div className={styles.chartGrid}>
@@ -34,7 +34,7 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
           </div>
         </div>
         <button className={styles.nextButton} onClick={() => setCurrentPage(4)}>
-          Volgende
+          VOLGENDE
         </button>
       </main>
     </div>

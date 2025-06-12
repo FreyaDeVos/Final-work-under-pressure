@@ -28,19 +28,21 @@ const InstructionPage = ({ setCurrentPage }) => {
   // Wanneer je op step 2 komt (na klikken op step 1), wacht dan 4s en ga naar NullPage
     useEffect(() => {
   if (currentStep === 2) {
-    // fade 1
-    setFade(true);
-    const timeout = setTimeout(() => {
-      setCurrentPage(2); // naar NullPage
-    }, 4000);
-    return () => clearTimeout(timeout);
-  }}, [currentStep, setCurrentPage]);
+    const visibleTimeout = setTimeout(() => {
+      setFade(true); // start fade after 5s
+      const fadeTimeout = setTimeout(() => {
+        setCurrentPage(2); // go to NullPage after fade
+      }, 1000); // fade duration = 1s
+      return () => clearTimeout(fadeTimeout);
+    }, 5000); // card stays fully visible for 5s
 
-
+    return () => clearTimeout(visibleTimeout);
+  }
+}, [currentStep, setCurrentPage]);
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={7} currentPage={1} />)}
+      {(currentStep === 0 || currentStep === 1) && (<PageIndicators totalPages={8} currentPage={1} />)}
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
       <div className={`${styles.mainContent} ${fade ? styles.fadeOut : ''}`}>

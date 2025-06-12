@@ -30,16 +30,6 @@ h2 {
   color: #2b2b2b;
 }
 
-a {
-  font-weight: 500;
-  color: #2b2b2b;
-}
-
-a:hover {
-  color: #ea5427;
-}
-
-
 script {
   display: flex;
 }

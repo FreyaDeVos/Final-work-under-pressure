@@ -53,13 +53,13 @@ function Ending({ setCurrentPage }) {
       {isExiting ? (
         <div className={styles.exitOverlay}>
           <p className={styles.reminderText}>
-            Hang de koptelefoon en stressmeter terug! <br /> Bedankt!
+            Vergeet de koptelefoon en stressmeter niet terug te hangen<br /> Bedankt!
           </p>
         </div>
       ) : (
         <>
           <div className={styles.header}>
-            <PageIndicators totalPages={7} currentPage={6} />
+            <PageIndicators totalPages={8} currentPage={7} />
             <ExitButton onClick={handleBackToStart} />
           </div>
 

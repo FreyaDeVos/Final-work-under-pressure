@@ -7,6 +7,7 @@ import Statistics1 from './components/Statistics1';
 import Stress from './components/Stress';
 import Statistics2 from './components/Statistics2';
 import Ending from './components/Ending';
+import InstructionPage2 from './components/InstructionPage2';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -79,9 +80,10 @@ function App() {
           setCurrentPage={setCurrentPage}
         />
       )}
-      {currentPage === 4 && <Stress setCurrentPage={setCurrentPage} />}
-      {currentPage === 5 && <Statistics2 setCurrentPage={setCurrentPage} />}
-      {currentPage === 6 && <Ending setCurrentPage={setCurrentPage} />}
+      {currentPage === 4 && <InstructionPage2 setCurrentPage={setCurrentPage} />}
+      {currentPage === 5 && <Stress setCurrentPage={setCurrentPage} />}
+      {currentPage === 6 && <Statistics2 setCurrentPage={setCurrentPage} />}
+      {currentPage === 7 && <Ending setCurrentPage={setCurrentPage} />}
     </div>
   );
 }
