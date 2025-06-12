@@ -53,7 +53,7 @@ function Ending({ setCurrentPage }) {
       {isExiting ? (
         <div className={styles.exitOverlay}>
           <p className={styles.reminderText}>
-            Vergeet de koptelefoon en stressmeter niet terug te hangen<br /> Bedankt!
+            Vergeet de koptelefoon en stressmeter niet terug te hangen.<br /> Bedankt!
           </p>
         </div>
       ) : (

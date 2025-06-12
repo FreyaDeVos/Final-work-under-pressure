@@ -6,7 +6,7 @@ import PageIndicators from './PageIndicators';
 
 const step = {
   id: 0,
-  animation: 'https://www.dl.dropboxusercontent.com/scl/fi/your_video.mp4', // pas aan naar jouw URL
+  animation: 'https://www.dl.dropboxusercontent.com/scl/fi/tohzccmykj47c93zxu017/finalkoptelefoon.mp4?rlkey=nixu9olop3m368m6naqa5j3x7&st=qf15xvvi',
 };
 
 const InstructionPage2 = ({ setCurrentPage }) => {
@@ -14,12 +14,12 @@ const InstructionPage2 = ({ setCurrentPage }) => {
 
   useEffect(() => {
     const visibleTimeout = setTimeout(() => {
-      setFade(true); // start fade
+      setFade(true);
       const fadeTimeout = setTimeout(() => {
-        setCurrentPage(5); // ga naar de juiste volgende pagina
-      }, 1000); // fade duurt 1s
+        setCurrentPage(5);
+      }, 1000);
       return () => clearTimeout(fadeTimeout);
-    }, 5000); // kaart zichtbaar voor 5s
+    }, 5000);
 
     return () => clearTimeout(visibleTimeout);
   }, [setCurrentPage]);
@@ -27,13 +27,12 @@ const InstructionPage2 = ({ setCurrentPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-         <PageIndicators totalPages={8} currentPage={4} />
+        <PageIndicators totalPages={8} currentPage={4} />
         <ExitButton onClick={() => setCurrentPage(0)} />
-            
       </div>
       <div className={`${styles.mainContent} ${fade ? styles.fadeOut : ''}`}>
         <div className={styles.cardContainer}>
-          <InstructionCard step={step} position="center" index={0} />
+          <InstructionCard key={step.id} step={step} position="center" />
         </div>
       </div>
     </div>
