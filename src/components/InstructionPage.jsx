@@ -9,9 +9,6 @@ const steps = [
   { id: 0, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/tohzccmykj47c93zxu017/finalkoptelefoon.mp4?rlkey=nixu9olop3m368m6naqa5j3x7&st=qf15xvvi' },
   { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/k14rec00487zm6pby1xlh/finalPolarAandoen_2.mp4?rlkey=dsogyc059bsonjymqha8oq74p&st=6b92wvx3' },
   { id: 2, animation: 'https://dl.dropboxusercontent.com/scl/fi/nkvyjm94umhnsk96f8yty/breath.mp4?rlkey=3m0x4qfpe6phyhuo8cc9jmgq3&st=j9vf2v7g&dl=1' },
-  { id: 3, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
-  { id: 4, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/giqoo940fy2pe2q0oc3ec/stress-klein.mp4?rlkey=55lpnwnpwx25u3v1apwkv3do3&st=qby66o0y' },
-  { id: 5, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/wurtuifpxkw2qh69vnmah/finalkoptelefoon.mp4?rlkey=4e469vjzgpxnavtgo9tu7hcsq&st=utuqt22r' },
 ];
 
 const InstructionPage = ({ setCurrentPage }) => {

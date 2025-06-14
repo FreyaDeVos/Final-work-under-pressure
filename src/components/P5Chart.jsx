@@ -4,10 +4,10 @@ import styles from './P5Chart.module.css';
 
 const P5Chart = ({ maxRMSSD }) => {
   const containerRef = useRef(null);
-  const [canvasWidth, setCanvasWidth] = useState(600); // startwaarde
-  const canvasHeight = 150; // vaste hoogte
+  const [canvasWidth, setCanvasWidth] = useState(600); 
+  const canvasHeight = 150; 
 
-  // Meet container breedte en update canvas width
+
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
@@ -42,7 +42,6 @@ const P5Chart = ({ maxRMSSD }) => {
       let stressScore = p.map(rmssd, rmssdMax, rmssdMin, 0, 100);
       stressScore = p.constrain(stressScore, 0, 100);
 
-      // Pas totalBarWidth aan op basis van canvasWidth
       const totalBarWidth = canvasWidth - 100;
       const barWidth = p.map(stressScore, 0, 100, 0, totalBarWidth);
 
@@ -57,20 +56,23 @@ const P5Chart = ({ maxRMSSD }) => {
         { color: '#ff3522', limit: segmentWidth * 3 },
       ];
 
+      // Eerst GEEN randjes bij staven
+      p.noStroke();
       let remainingWidth = barWidth;
       for (let i = 0; i < stops.length; i++) {
         const drawWidth = Math.min(remainingWidth, segmentWidth);
         if (drawWidth > 0) {
           p.fill(stops[i].color);
-          p.rect(xStart + i * segmentWidth, y, drawWidth, height);
+          p.rect(xStart + i * segmentWidth, y, drawWidth, height, 8);  // 8 = afgeronde hoeken
           remainingWidth -= drawWidth;
         }
       }
 
+      // Nu randjes aanzetten voor lijnen en ticks
+      p.stroke(0);
       p.fill(0);
-      p.textSize(16);
-      p.text('Stressniveau (0–100)', xStart, 30);
       p.line(xStart, 105, xStart + totalBarWidth, 105);
+
       for (let i = 0; i <= 5; i++) {
         const x = xStart + (totalBarWidth / 5) * i;
         p.line(x, 100, x, 110);

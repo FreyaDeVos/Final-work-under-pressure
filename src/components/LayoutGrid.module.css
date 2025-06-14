@@ -151,7 +151,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 5rem;
     padding-top: 0.5rem;
 }
 
@@ -173,19 +173,105 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
-    margin-top: 3rem;
+    margin-top: 7rem;
+    align-items: center;
 }
 
 .chartRow {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.labelContainer {
+    flex: 1 1 150px;
+    min-width: 120px;
+    text-align: left;
+}
+
+.contentContainer {
+    flex: 2 1 250px;
+    min-width: 200px;
 }
 
 .chartLabel {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    width: 200px;
-    text-align: left;
+    font-family: 'Exo', sans-serif;
 }
+
+.chartFallback {
+    font-size: 1.2rem;
+    font-family: 'Exo', sans-serif;
+}
+
+.legendTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Exo', sans-serif;
+}
+
+.labelWithTooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipIcon {
+    position: absolute;
+    top: 15%;
+    right: 1;
+    width: 1rem;
+    height: 1rem;
+    font-weight: bold;
+    background-color: #2B2B2B;
+    color: #fff4f1;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tooltipText {
+    visibility: hidden;
+    width: 240px;
+    background-color: #2B2B2B;
+    color: #fff4f1;
+    border-radius: 0.4rem;
+    padding: 0.6rem;
+    position: absolute;
+    z-index: 20;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.tooltipIcon:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltipClose {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff4f1;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+

@@ -1,21 +1,24 @@
 import React from 'react';
-import styles from './LayoutGrid.module.css'; // vergeet dit niet!
+import styles from './LayoutGrid.module.css';
 
 const StressLegend = () => {
   return (
     <div className={styles.legendWrapper}>
       <div className={styles.legendRow}>
         <div className={styles.legendItem}>
-          <div className={styles.legendColor} style={{ backgroundColor: '#ffa0d3' }}></div>
-          <span>Rustig (score 0–33)</span>
+          <span className={styles.legendTitle}>Stresslevel (0 – 100)</span>
         </div>
         <div className={styles.legendItem}>
-          <div className={styles.legendColor} style={{ backgroundColor: '#eb7d31' }}></div>
-          <span>Gemiddeld (score 34–66)</span>
+          <div className={styles.legendColor} style={{ backgroundColor: '#ffa0d3' }} />
+          <span>laag (0 - 33)</span>
         </div>
         <div className={styles.legendItem}>
-          <div className={styles.legendColor} style={{ backgroundColor: '#ff3522' }}></div>
-          <span>Gestresseerd (score 67–100)</span>
+          <div className={styles.legendColor} style={{ backgroundColor: '#eb7d31' }} />
+          <span>gemiddeld (34-66)</span>
+        </div>
+        <div className={styles.legendItem}>
+          <div className={styles.legendColor} style={{ backgroundColor: '#ff3522' }} />
+          <span>hoog (67 - 100)</span>
         </div>
       </div>
     </div>
