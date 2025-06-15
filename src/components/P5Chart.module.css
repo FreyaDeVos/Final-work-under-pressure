@@ -1,7 +1,7 @@
 .chartContainer {
     width: 100%;
     max-width: 600px;
-    margin: 20px auto;
+
     user-select: none;
     font-family: 'Exo', sans-serif;
 }

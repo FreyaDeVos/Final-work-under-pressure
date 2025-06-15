@@ -4,9 +4,8 @@ import styles from './P5Chart.module.css';
 
 const P5Chart = ({ maxRMSSD }) => {
   const containerRef = useRef(null);
-  const [canvasWidth, setCanvasWidth] = useState(600); 
-  const canvasHeight = 150; 
-
+  const [canvasWidth, setCanvasWidth] = useState(600);
+  const canvasHeight = 150;
 
   useEffect(() => {
     const updateWidth = () => {
@@ -35,11 +34,13 @@ const P5Chart = ({ maxRMSSD }) => {
     };
 
     p.draw = () => {
-      const rmssd = maxRMSSD || 0;
+      const rmssd = maxRMSSD ?? 0;
       const rmssdMin = 0;
-      const rmssdMax = 50;
+      const rmssdMax = 100;
 
-      let stressScore = p.map(rmssd, rmssdMax, rmssdMin, 0, 100);
+      // Convert RMSSD to a stress score from 0 (low stress) to 100 (high stress)
+      // Lower RMSSD = higher stress score
+      let stressScore = p.map(rmssd, rmssdMin, rmssdMax, 100, 0);
       stressScore = p.constrain(stressScore, 0, 100);
 
       const totalBarWidth = canvasWidth - 100;
@@ -56,19 +57,17 @@ const P5Chart = ({ maxRMSSD }) => {
         { color: '#ff3522', limit: segmentWidth * 3 },
       ];
 
-      // Eerst GEEN randjes bij staven
       p.noStroke();
       let remainingWidth = barWidth;
       for (let i = 0; i < stops.length; i++) {
         const drawWidth = Math.min(remainingWidth, segmentWidth);
         if (drawWidth > 0) {
           p.fill(stops[i].color);
-          p.rect(xStart + i * segmentWidth, y, drawWidth, height, 8);  // 8 = afgeronde hoeken
+          p.rect(xStart + i * segmentWidth, y, drawWidth, height, 8);
           remainingWidth -= drawWidth;
         }
       }
 
-      // Nu randjes aanzetten voor lijnen en ticks
       p.stroke(0);
       p.fill(0);
       p.line(xStart, 105, xStart + totalBarWidth, 105);
@@ -81,6 +80,12 @@ const P5Chart = ({ maxRMSSD }) => {
         p.text(`${i * 20}`, x - 5, 120);
         p.stroke(0);
       }
+
+      p.noStroke();
+      p.fill(0);
+      p.textSize(18);
+      p.textAlign(p.LEFT, p.CENTER);
+      p.text(`${Math.round(stressScore)}`, xStart + barWidth + 15, y + height / 2);
     };
   };
 

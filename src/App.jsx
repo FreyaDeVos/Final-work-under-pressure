@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+
 import WelcomePage from './components/WelcomePage'; 
 import InstructionPage from './components/InstructionPage';
 import NullPage from './components/NullPage';
@@ -12,8 +13,17 @@ import InstructionPage2 from './components/InstructionPage2';
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const [hrvData, setHrvData] = useState(null);
-  const [rmssdBuffer, setRmssdBuffer] = useState([]);
+
+  // Buffers
+  const [rmssdBuffer, setRmssdBuffer] = useState([]);         // Rust
+  const [stressBuffer, setStressBuffer] = useState([]);       // Stress
+
+  // Resultaten rust
   const [maxRMSSD, setMaxRMSSD] = useState(null);
+
+  // Resultaten stress
+  const [stressMinRMSSD, setStressMinRMSSD] = useState(null);
+  const [stressAvgRMSSD, setStressAvgRMSSD] = useState(null);
 
   useEffect(() => {
     const socket = io('http://localhost:3001');
@@ -26,8 +36,14 @@ function App() {
       console.log('📡 HRV Data ontvangen:', data);
       setHrvData(data);
 
+      // Tijdens rustmeting
       if (currentPage === 2 && data.rmssd > 0) {
         setRmssdBuffer(prev => [...prev, data.rmssd]);
+      }
+
+      // Tijdens stressmeting
+      if (currentPage === 5 && data.rmssd > 0) {
+        setStressBuffer(prev => [...prev, data.rmssd]);
       }
     });
 
@@ -40,49 +56,44 @@ function App() {
     };
   }, [currentPage]);
 
+  // Verwerk rustresultaten bij binnenkomst op Statistics1
   useEffect(() => {
-    if (rmssdBuffer.length > 0) {
+    if (currentPage === 3 && rmssdBuffer.length > 0) {
       const max = Math.max(...rmssdBuffer);
+      console.log('📊 maxRMSSD van rustperiode:', max);
       setMaxRMSSD(max);
-      console.log("📈 Max RMSSD bijgewerkt:", max.toFixed(2));
     }
-  }, [rmssdBuffer]);
+  }, [currentPage, rmssdBuffer]);
 
-  // Reset buffer en maxRMSSD telkens je op NullPage komt
+// stressresultaten bij binnenkomst op Stat2
   useEffect(() => {
-    if (currentPage === 2) {
-      setRmssdBuffer([]);
-      setMaxRMSSD(null);
+    if (currentPage === 6 && stressBuffer.length > 0) {
+      const min = Math.min(...stressBuffer);
+      const avg = stressBuffer.reduce((sum, val) => sum + val, 0) / stressBuffer.length;
+      console.log('😰 Min RMSSD stress:', min);
+      console.log('📉 Gemiddelde RMSSD stress:', avg);
+      setStressMinRMSSD(min);
+      setStressAvgRMSSD(avg);
     }
-  }, [currentPage]);
-
-  console.log("🟢 maxRMSSD in App:", maxRMSSD);
+  }, [currentPage, stressBuffer]);
 
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
       {currentPage === 0 && (
-        <WelcomePage
-          hrvData={hrvData}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <WelcomePage hrvData={hrvData} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       )}
       {currentPage === 1 && <InstructionPage setCurrentPage={setCurrentPage} />}
-      {currentPage === 2 && (
-        <NullPage
-          setCurrentPage={setCurrentPage}
-          rmssdBuffer={rmssdBuffer}
-        />
-      )}
-      {currentPage === 3 && (
-        <Statistics1
-          maxRMSSD={maxRMSSD}
-          setCurrentPage={setCurrentPage}
-        />
-      )}
+      {currentPage === 2 && <NullPage setCurrentPage={setCurrentPage} hrvData={hrvData} />}
+      {currentPage === 3 && <Statistics1 maxRMSSD={maxRMSSD} setCurrentPage={setCurrentPage} />}
       {currentPage === 4 && <InstructionPage2 setCurrentPage={setCurrentPage} />}
-      {currentPage === 5 && <Stress setCurrentPage={setCurrentPage} />}
-      {currentPage === 6 && <Statistics2 setCurrentPage={setCurrentPage} />}
+      {currentPage === 5 && <Stress setCurrentPage={setCurrentPage} hrvData={hrvData} />}
+      {currentPage === 6 && (
+        <Statistics2
+          minRMSSD={stressMinRMSSD}
+          avgRMSSD={stressAvgRMSSD}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
       {currentPage === 7 && <Ending setCurrentPage={setCurrentPage} />}
     </div>
   );

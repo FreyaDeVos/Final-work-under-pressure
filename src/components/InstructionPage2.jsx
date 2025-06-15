@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import InstructionCard from './InstructionCard';
 import ExitButton from './ExitButton';
-import PageIndicators from './PageIndicators';
 import styles from './InstructionPage.module.css';
 
 const centerStep = {
@@ -32,7 +31,6 @@ const InstructionPage2 = ({ setCurrentPage }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <PageIndicators totalPages={8} currentPage={4} />
         <ExitButton onClick={() => setCurrentPage(0)} />
       </div>
       <div className={`${styles.mainContent} ${fade ? styles.fadeOut : ''}`}>

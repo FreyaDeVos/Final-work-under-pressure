@@ -25,6 +25,10 @@ const steps = [
     animation: 'https://dl.dropboxusercontent.com/scl/fi/jv8jc6yhf9wyf3oa2b7q3/breath_v2.mp4?rlkey=61v1b7xd7upmuvm9xhgtajgz6&st=to82iv3y&dl=1',
     thumbnail: thumb2,
   },
+    { 
+    id: 3, 
+    thumbnail: 'https://dl.dropboxusercontent.com/scl/fi/ntq75orq6xnaix1z65he1/statimage.png?rlkey=1tivnsl552pom5sc2tqhcfb0p&st=051qlyoi&dl=1',
+  },
 ];
 
 const InstructionPage = ({ setCurrentPage }) => {
