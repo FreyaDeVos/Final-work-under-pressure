@@ -3,10 +3,11 @@ import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
 import styles from './LayoutGrid.module.css';
 import P5Chart from './P5Chart';
+import StressLegend from './StressLegend';
 
 const Statistics1 = ({ maxRMSSD, avgRMSSD, setCurrentPage }) => {
   const [showTooltipAvg, setShowTooltipAvg] = useState(false);
-  const [showTooltipMin, setShowTooltipMin] = useState(false);  // tooltip voor "ik"
+  const [showTooltipMin, setShowTooltipMin] = useState(false);  
 
   return (
     <div className={styles.gridContainer}>
@@ -16,11 +17,10 @@ const Statistics1 = ({ maxRMSSD, avgRMSSD, setCurrentPage }) => {
       </div>
 
       <main className={styles.mainContent}>
+           
         <h1>STRESSLEVEL IN RUST</h1>
-
+ <StressLegend />
         <div className={styles.chartGrid}>
-
-          {/* Persoonlijke rustwaarde */}
           <div className={styles.chartRow}>
             <div className={styles.labelContainer}>
               <div className={styles.labelWithTooltip} style={{ position: 'relative' }}>

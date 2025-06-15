@@ -5,12 +5,12 @@ import Animation from './Animation';
 import styles from './Ending.module.css';
 
 const tips = {
-  1: "Wist je dat ... zelfs vrolijke muziek stressvol kan zijn als het te luid is?",
-  2: "Wist je dat ... door lange schermtijd verkeert je brein in een aanhoudende staat van alertheid, wat leidt tot verhoogde stress.",
+  1: "Wist je dat ... zelfs vrolijke muziek stressvol kan zijn, als het te luid is?",
+  2: "Wist je dat ... door lange schermtijd  je brein in een aanhoudende staat van alerthei verkeert, wat leidt tot verhoogde stress.",
   3: "Wist je dat ... externe prikkels kunnen een stressreactie uitlokken zonder dat je het bewust doorhebt.",
   4: "Wist je dat ... luid geluid je lichaam automatisch in een vecht-of-vluchtmodus kan zetten – ook al is er geen echt gevaar.",
-  5: "Wist je dat ... het geluid van een huilende baby wordt wereldwijd beschouwd als een van de meest stressverhogende geluiden.",
-  6: "Wist je dat ... stress door externe prikkels verlaagt je werkgeheugen, waardoor je minder informatie kunt vasthouden."
+  5: "Wist je dat ... het geluid van een huilende baby wereldwijd wordt beschouwd als een van de meest stressverhogende geluiden.",
+  6: "Wist je dat ... stress door externe prikkels je werkgeheugen verlaagt, waardoor je minder informatie kunt vasthouden."
 };
 
 function Ending({ setCurrentPage }) {

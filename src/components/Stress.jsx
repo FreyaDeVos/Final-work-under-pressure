@@ -24,7 +24,7 @@ const Stress = ({ setCurrentPage, hrvData, onMaxRMSSDReady }) => {
         onMaxRMSSDReady?.(null);
       }
       setCurrentPage(6);
-    }, 4000);
+    }, 40000);
 
     return () => clearTimeout(timer);
   }, []); // enkel bij eerste render uitvoeren

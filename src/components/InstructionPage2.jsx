@@ -5,7 +5,7 @@ import styles from './InstructionPage.module.css';
 
 const centerStep = {
   id: 0,
-  animation: 'https://dl.dropboxusercontent.com/scl/fi/vhdx8qgzxckoa3iaojwul/stress-klein_2.mp4?rlkey=7e31tdk1qe47mdom3u8pqfozd&st=sptu2s9n&dl=1',
+  animation: 'https://www.dl.dropboxusercontent.com/scl/fi/1t15ccdm47z74oykuxzsv/stress-klein_1.mp4?rlkey=q1drwb5vranlpcvpgozrt9eao&st=idm3behu',
 };
 
 const rightStep = {

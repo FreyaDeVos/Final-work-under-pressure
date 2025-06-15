@@ -22,7 +22,7 @@ const steps = [
   },
   { 
     id: 2, 
-    animation: 'https://dl.dropboxusercontent.com/scl/fi/jv8jc6yhf9wyf3oa2b7q3/breath_v2.mp4?rlkey=61v1b7xd7upmuvm9xhgtajgz6&st=to82iv3y&dl=1',
+    animation: 'https://www.dl.dropboxusercontent.com/scl/fi/nkvyjm94umhnsk96f8yty/breath.mp4?rlkey=3m0x4qfpe6phyhuo8cc9jmgq3&st=5oxzto6h',
     thumbnail: thumb2,
   },
     { 
