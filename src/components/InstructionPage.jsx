@@ -5,10 +5,26 @@ import InstructionCard from './InstructionCard';
 import styles from './InstructionPage.module.css';
 
 
+import thumb0 from '../assets/koptelefoonimage.png';
+import thumb1 from '../assets/polarimage.png';
+import thumb2 from '../assets/breathimage.png';
+
 const steps = [
-  { id: 0, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/tohzccmykj47c93zxu017/finalkoptelefoon.mp4?rlkey=nixu9olop3m368m6naqa5j3x7&st=qf15xvvi' },
-  { id: 1, animation: 'https://www.dl.dropboxusercontent.com/scl/fi/k14rec00487zm6pby1xlh/finalPolarAandoen_2.mp4?rlkey=dsogyc059bsonjymqha8oq74p&st=6b92wvx3' },
-  { id: 2, animation: 'https://dl.dropboxusercontent.com/scl/fi/nkvyjm94umhnsk96f8yty/breath.mp4?rlkey=3m0x4qfpe6phyhuo8cc9jmgq3&st=j9vf2v7g&dl=1' },
+  { 
+    id: 0, 
+    animation: 'https://www.dl.dropboxusercontent.com/scl/fi/tohzccmykj47c93zxu017/finalkoptelefoon.mp4?rlkey=nixu9olop3m368m6naqa5j3x7&st=qf15xvvi',
+    thumbnail: thumb0,
+  },
+  { 
+    id: 1, 
+    animation: 'https://www.dl.dropboxusercontent.com/scl/fi/k14rec00487zm6pby1xlh/finalPolarAandoen_2.mp4?rlkey=dsogyc059bsonjymqha8oq74p&st=6b92wvx3',
+    thumbnail: thumb1,
+  },
+  { 
+    id: 2, 
+    animation: 'https://dl.dropboxusercontent.com/scl/fi/jv8jc6yhf9wyf3oa2b7q3/breath_v2.mp4?rlkey=61v1b7xd7upmuvm9xhgtajgz6&st=to82iv3y&dl=1',
+    thumbnail: thumb2,
+  },
 ];
 
 const InstructionPage = ({ setCurrentPage }) => {
@@ -22,16 +38,16 @@ const InstructionPage = ({ setCurrentPage }) => {
     }
   };
 
-  // Wanneer je op step 2 komt (na klikken op step 1), wacht dan 4s en ga naar NullPage
+  
     useEffect(() => {
   if (currentStep === 2) {
     const visibleTimeout = setTimeout(() => {
-      setFade(true); // start fade after 5s
+      setFade(true); // 
       const fadeTimeout = setTimeout(() => {
-        setCurrentPage(2); // go to NullPage after fade
-      }, 1000); // fade duration = 1s
+        setCurrentPage(2); 
+      }, 1000); 
       return () => clearTimeout(fadeTimeout);
-    }, 5000); // card stays fully visible for 5s
+    }, 2200); 
 
     return () => clearTimeout(visibleTimeout);
   }
