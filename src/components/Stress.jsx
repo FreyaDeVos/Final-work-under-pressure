@@ -32,13 +32,14 @@ const Stress = ({ setCurrentPage, hrvData, onMaxRMSSDReady }) => {
   return (
     <div className={styles.gridContainer}>
       <div className={styles.header}>
-        <ExitButton onClick={() => setCurrentPage(0)} />
+     
       </div>
       <div className={styles.fullscreenBackground}>
         <Animation src="https://www.dropbox.com/scl/fi/aildmg6y2qienlzg1piy2/stresscreenv1_.mp4?rlkey=j2yizwox6pbfi4rd92h280sdo&st=g8g96e8y&dl=1" />
       </div>
       <div className={styles.header}>
         <div className={styles.animationBlockTimeline}>
+             <ExitButton onClick={() => setCurrentPage(0)} />
           <Animation src="https://dl.dropboxusercontent.com/scl/fi/mfquf11hkeysv315itg5e/tijdsbalk_2.mp4?rlkey=0ctyhjeoubptaup0t4zn6ym4f&st=c8nefx22" />
         </div>
       </div>
