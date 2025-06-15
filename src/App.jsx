@@ -25,6 +25,10 @@ function App() {
   const [stressMinRMSSD, setStressMinRMSSD] = useState(null);
   const [stressAvgRMSSD, setStressAvgRMSSD] = useState(null);
 
+  // Globale gemiddelde waarden
+  const GLOBAL_AVERAGE_REST = 78;   // gemiddelde waarde rust (Stat1)
+  const GLOBAL_AVERAGE_STRESS = 22; // gemiddelde waarde stress (Stat2)
+
   useEffect(() => {
     const socket = io('http://localhost:3001');
 
@@ -65,7 +69,7 @@ function App() {
     }
   }, [currentPage, rmssdBuffer]);
 
-// stressresultaten bij binnenkomst op Stat2
+  // Verwerk stressresultaten bij binnenkomst op Statistics2
   useEffect(() => {
     if (currentPage === 6 && stressBuffer.length > 0) {
       const min = Math.min(...stressBuffer);
@@ -84,13 +88,20 @@ function App() {
       )}
       {currentPage === 1 && <InstructionPage setCurrentPage={setCurrentPage} />}
       {currentPage === 2 && <NullPage setCurrentPage={setCurrentPage} hrvData={hrvData} />}
-      {currentPage === 3 && <Statistics1 maxRMSSD={maxRMSSD} setCurrentPage={setCurrentPage} />}
+      {currentPage === 3 && (
+        <Statistics1 
+          maxRMSSD={maxRMSSD} 
+          avgRMSSD={GLOBAL_AVERAGE_REST} 
+          setCurrentPage={setCurrentPage} 
+        />
+      )}
       {currentPage === 4 && <InstructionPage2 setCurrentPage={setCurrentPage} />}
       {currentPage === 5 && <Stress setCurrentPage={setCurrentPage} hrvData={hrvData} />}
       {currentPage === 6 && (
         <Statistics2
-          minRMSSD={stressMinRMSSD}
-          avgRMSSD={stressAvgRMSSD}
+          minRMSSD={stressMinRMSSD}          // Persoonlijke waarde na drukte
+          maxRMSSD={maxRMSSD}                // Persoonlijke waarde in rust (van Stat1)
+          avgRMSSD={GLOBAL_AVERAGE_STRESS}  // Gemiddelde waarde wereldwijd in drukte
           setCurrentPage={setCurrentPage}
         />
       )}

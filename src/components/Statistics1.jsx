@@ -3,16 +3,10 @@ import PageIndicators from './PageIndicators';
 import ExitButton from './ExitButton';
 import styles from './LayoutGrid.module.css';
 import P5Chart from './P5Chart';
-import StressLegend from './StressLegend';
 
-const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
-  const averageRMSSD = 24; // hardcoded average in rest
-
-  const [showTooltipIk, setShowTooltipIk] = useState(true);
+const Statistics1 = ({ maxRMSSD, avgRMSSD, setCurrentPage }) => {
   const [showTooltipAvg, setShowTooltipAvg] = useState(false);
-
-  // maxRMSSD is personal max RMSSD value (highest measured)
-  // if null, show fallback
+  const [showTooltipMin, setShowTooltipMin] = useState(false);  // tooltip voor "ik"
 
   return (
     <div className={styles.gridContainer}>
@@ -23,42 +17,41 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
 
       <main className={styles.mainContent}>
         <h1>STRESSLEVEL IN RUST</h1>
-        <StressLegend />
 
         <div className={styles.chartGrid}>
 
-          {/* Personal highest RMSSD ("ik") */}
+          {/* Persoonlijke rustwaarde */}
           <div className={styles.chartRow}>
             <div className={styles.labelContainer}>
-              <div className={styles.labelWithTooltip}>
+              <div className={styles.labelWithTooltip} style={{ position: 'relative' }}>
                 <p className={styles.chartLabel}>
-                  ik
+                  mijn stresslevel in rust
                   <span
                     className={styles.tooltipIcon}
-                    onClick={() => setShowTooltipIk(!showTooltipIk)}
+                    onClick={() => setShowTooltipMin(!showTooltipMin)}
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setShowTooltipIk(!showTooltipIk);
+                        setShowTooltipMin(!showTooltipMin);
                       }
                     }}
-                    aria-label="Meer info over jouw waarde"
+                    aria-label="Meer info over jouw rustwaarde"
                   >
                     i
-                    {showTooltipIk && (
+                    {showTooltipMin && (
                       <div className={styles.tooltipText}>
                         <button
                           className={styles.tooltipClose}
                           onClick={(e) => {
                             e.stopPropagation();
-                            setShowTooltipIk(false);
+                            setShowTooltipMin(false);
                           }}
                           aria-label="Sluit tooltip"
                         >
                           &times;
                         </button>
-                        Deze waarde is jouw gemeten stresslevel in rust.
+                       Dit is jouw stresslevel gemeten in rust. 
                       </div>
                     )}
                   </span>
@@ -69,17 +62,17 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
               {maxRMSSD !== null ? (
                 <P5Chart maxRMSSD={maxRMSSD} />
               ) : (
-                <div className={styles.chartFallback}>Geen stresslevel beschikbaar</div>
+                <div className={styles.chartFallback}>Geen rustwaarde beschikbaar</div>
               )}
             </div>
           </div>
 
-          {/* Hardcoded average RMSSD = 24 */}
+          {/* Gemiddelde rustwaarde */}
           <div className={styles.chartRow}>
             <div className={styles.labelContainer}>
-              <div className={styles.labelWithTooltip}>
+              <div className={styles.labelWithTooltip} style={{ position: 'relative' }}>
                 <p className={styles.chartLabel}>
-                  gemiddelde in rust
+                  gemiddelde stresslevel in rust
                   <span
                     className={styles.tooltipIcon}
                     onClick={() => setShowTooltipAvg(!showTooltipAvg)}
@@ -105,7 +98,7 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
                         >
                           &times;
                         </button>
-                        Dit stresslevel is het gemiddelde van mensen, wereldwijd in rust.
+                        Dit is het gemiddelde stresslevel in rust wereldwijd.
                       </div>
                     )}
                   </span>
@@ -113,7 +106,7 @@ const Statistics1 = ({ maxRMSSD, setCurrentPage }) => {
               </div>
             </div>
             <div className={styles.contentContainer}>
-              <P5Chart maxRMSSD={averageRMSSD} />
+              <P5Chart maxRMSSD={avgRMSSD} />
             </div>
           </div>
 

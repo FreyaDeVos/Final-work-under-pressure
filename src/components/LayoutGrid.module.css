@@ -274,3 +274,23 @@
     line-height: 1;
 }
 
+/* Specifiek voor Statistics2 (minder margin tussen grafieken) */
+.stat2ChartGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+    /* minder dan normale 5rem */
+    align-items: center;
+}
+
+.stat2ChartRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* minder gap dan normale 3rem */
+    width: 100%;
+    max-width: 1000px;
+}

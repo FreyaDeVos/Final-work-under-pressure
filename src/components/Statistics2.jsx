@@ -5,12 +5,10 @@ import styles from './LayoutGrid.module.css';
 import P5Chart from './P5Chart';
 import StressLegend from './StressLegend';
 
-const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
-  const averageStressRMSSD = 22; 
-
+const Statistics2 = ({ minRMSSD, maxRMSSD, avgRMSSD, setCurrentPage }) => {
   const [showTooltipMin, setShowTooltipMin] = useState(true);
+  const [showTooltipMax, setShowTooltipMax] = useState(false);
   const [showTooltipAvg, setShowTooltipAvg] = useState(false);
-
 
   return (
     <div className={styles.gridContainer}>
@@ -23,14 +21,14 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
         <h1>STRESSLEVEL IN DRUKTE</h1>
         <StressLegend />
 
-        <div className={styles.chartGrid}>
+        <div className={styles.stat2ChartGrid}>
 
-          {/* Personal lowest RMSSD ("ik") */}
-          <div className={styles.chartRow}>
+          {/* Persoonlijke waarde na drukte */}
+          <div className={styles.stat2ChartRow}>
             <div className={styles.labelContainer}>
               <div className={styles.labelWithTooltip}>
                 <p className={styles.chartLabel}>
-                  ik
+                  mijn stresslevel in drukte
                   <span
                     className={styles.tooltipIcon}
                     onClick={() => setShowTooltipMin(!showTooltipMin)}
@@ -41,7 +39,7 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
                         setShowTooltipMin(!showTooltipMin);
                       }
                     }}
-                    aria-label="Meer info over laagste waarde"
+                    aria-label="Meer info over persoonlijke waarde na drukte"
                   >
                     i
                     {showTooltipMin && (
@@ -56,7 +54,7 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
                         >
                           &times;
                         </button>
-                        Deze waarde is jouw gemeten stresslevel in drukte.
+                         Dit is jouw stresslevel gemeten in drukte.
                       </div>
                     )}
                   </span>
@@ -72,12 +70,58 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
             </div>
           </div>
 
-          {/* Hardcoded average stress RMSSD = 65 */}
-          <div className={styles.chartRow}>
+          <div className={styles.stat2ChartRow}>
             <div className={styles.labelContainer}>
               <div className={styles.labelWithTooltip}>
                 <p className={styles.chartLabel}>
-                  gemiddelde waarde
+                  mijn stresslevel in rust
+                  <span
+                    className={styles.tooltipIcon}
+                    onClick={() => setShowTooltipMax(!showTooltipMax)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setShowTooltipMax(!showTooltipMax);
+                      }
+                    }}
+                    aria-label="Meer info over persoonlijke waarde in rust"
+                  >
+                    i
+                    {showTooltipMax && (
+                      <div className={styles.tooltipText}>
+                        <button
+                          className={styles.tooltipClose}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowTooltipMax(false);
+                          }}
+                          aria-label="Sluit tooltip"
+                        >
+                          &times;
+                        </button>
+                         Dit is jouw stresslevel gemeten in rust.
+                      </div>
+                    )}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div className={styles.contentContainer}>
+              {maxRMSSD !== null ? (
+                <P5Chart maxRMSSD={maxRMSSD} />
+              ) : (
+                <div className={styles.chartFallback}>Geen rustwaarde beschikbaar</div>
+              )}
+            </div>
+          </div>
+
+          {/* Gemiddelde waarde wereldwijd in drukte */}
+          <div className={styles.stat2ChartRow}>
+            <div className={styles.labelContainer}>
+              <div className={styles.labelWithTooltip}>
+                <p className={styles.chartLabel}>
+                  gemiddelde stresslevel in drukte
                   <span
                     className={styles.tooltipIcon}
                     onClick={() => setShowTooltipAvg(!showTooltipAvg)}
@@ -88,7 +132,7 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
                         setShowTooltipAvg(!showTooltipAvg);
                       }
                     }}
-                    aria-label="Meer info over gemiddelde waarde"
+                    aria-label="Meer info over gemiddelde waarde wereldwijd"
                   >
                     i
                     {showTooltipAvg && (
@@ -103,7 +147,7 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
                         >
                           &times;
                         </button>
-                        Dit stresslevel is het gemiddelde van mensen, wereldwijd in drukte.
+                        Dit is het gemiddelde stresslevel wereldwijd in drukke situaties.
                       </div>
                     )}
                   </span>
@@ -111,7 +155,7 @@ const Statistics2 = ({ minRMSSD, setCurrentPage }) => {
               </div>
             </div>
             <div className={styles.contentContainer}>
-              <P5Chart maxRMSSD={averageStressRMSSD} />
+              <P5Chart maxRMSSD={avgRMSSD} />
             </div>
           </div>
 
